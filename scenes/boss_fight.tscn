@@ -10,3 +10,23 @@ script = ExtResource("1_1hapx")
 
 [node name="BossFightManager" type="Node" parent="."]
 script = ExtResource("3_7ydql")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="BossFightManager"]
+
+[node name="player1health" type="Label" parent="BossFightManager/CanvasLayer"]
+offset_left = 59.0
+offset_top = 54.0
+offset_right = 99.0
+offset_bottom = 77.0
+
+[node name="player2health" type="Label" parent="BossFightManager/CanvasLayer"]
+offset_left = 141.0
+offset_top = 413.0
+offset_right = 181.0
+offset_bottom = 436.0
+
+[node name="bosshealth" type="Label" parent="BossFightManager/CanvasLayer"]
+offset_left = 769.0
+offset_top = 396.0
+offset_right = 809.0
+offset_bottom = 419.0
