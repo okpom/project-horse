@@ -22,6 +22,7 @@ shape = SubResource("CapsuleShape2D_sh265")
 texture = ExtResource("1_3vyb7")
 
 [node name="SkillsBar" parent="." instance=ExtResource("3_1ie0h")]
+visible = false
 offset_left = -90.0
 offset_top = -146.0
 offset_right = -90.0
@@ -29,6 +30,7 @@ offset_bottom = -146.0
 scale = Vector2(1, 1)
 
 [node name="HealthBar" parent="." instance=ExtResource("4_42nxq")]
+visible = false
 offset_left = -106.0
 offset_top = 62.0
 offset_right = -106.0
