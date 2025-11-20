@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bvedsk338f7yw"]
+[gd_scene load_steps=7 format=3 uid="uid://bvedsk338f7yw"]
 
 [ext_resource type="Script" uid="uid://dq2femc5csbq4" path="res://scripts/UI/player_skill_columns.gd" id="1_e7oh1"]
 [ext_resource type="Texture2D" uid="uid://csfjhtuiraqfw" path="res://assets/UI_Visuals/custom_drawing/Screenshot 2025-11-12 at 11.24.58 AM.png" id="2_i740y"]
 [ext_resource type="Texture2D" uid="uid://bnoje7i2okjtp" path="res://assets/UI_Visuals/Skills_Icons/guard.png" id="2_vc42p"]
 [ext_resource type="Texture2D" uid="uid://ccapfxxjtvyfw" path="res://assets/UI_Visuals/Skills_Icons/melee_buff.png" id="3_i740y"]
 [ext_resource type="Texture2D" uid="uid://dsnlxit2ht1x7" path="res://assets/UI_Visuals/Skills_Icons/light_attack.png" id="4_0iegi"]
+[ext_resource type="PackedScene" uid="uid://bxo7gl2mf7ho4" path="res://scenes/UI/skill_description_box.tscn" id="6_i740y"]
 
 [node name="SkillsColumn" type="Control"]
 layout_mode = 3
@@ -522,3 +523,12 @@ offset_right = 1008.0
 offset_bottom = 70.0
 theme_override_font_sizes/font_size = 40
 text = "SKILLS COLUMN SCENE"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="SkillDescriptionBox" parent="CanvasLayer" instance=ExtResource("6_i740y")]
+offset_left = 539.0
+offset_top = 28.0
+offset_right = 539.0
+offset_bottom = 28.0

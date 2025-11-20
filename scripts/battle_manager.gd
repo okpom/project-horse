@@ -17,6 +17,7 @@ var prelim_handler: PrelimCombatHandler
 var action_handler: ActionHandler
 var combat_manager: CombatManager
 var clash_system: ClashSystem
+var UI_Test_System: BossFightManager
 
 # References to players and enemy
 var players: Array = []
@@ -24,10 +25,18 @@ var enemy: Entity
 
 # Initialize subsystems and start battle
 func _ready():
+	# Adriano's testing before moving to prelim
+	#UI_Test_System = BossFightManager.new()
+	#add_child(UI_Test_System)
+	
+	# turned off to test UI
 	_initialize_subsystems()
 	start_battle()
+	
+
 
 func _initialize_subsystems():
+	
 	prelim_handler = PrelimCombatHandler.new()
 	add_child(prelim_handler)
 	
@@ -36,6 +45,7 @@ func _initialize_subsystems():
 	
 	combat_manager = CombatManager.new()
 	add_child(combat_manager)
+	
 	
 	# TODO: Initialize clash_system when ready
 
