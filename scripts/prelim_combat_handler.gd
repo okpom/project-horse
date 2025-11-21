@@ -16,11 +16,6 @@ func setup_fight() -> void:
 	init_skills()  # Setup skills for all entities
 	apply_skills_to_UI()
 
-func apply_skills_to_UI():
-	for player in players:
-		var col := player.get_node_or_null("SkillsColumn")
-		if col:
-			col.show_skills(player)
 
 func spawn_players() -> void:
 	#var player_positions = [Vector2(-450, -200), Vector2(-400, 150)]
@@ -42,13 +37,12 @@ func spawn_players() -> void:
 		#generate skills bar for this player
 		var bar = player_instance.get_node_or_null("SkillsBar")
 		if bar:
-			bar.show_bar()
+			bar.generate_placeholder_skill_icons()
 			
 		#generate skills column for this player
 		var col = player_instance.get_node_or_null("SkillsColumn")
 		if col:
-			#col.generate_skills()
-			col.generate_fake_skills()
+			col.generate_placeholder_skill_icons()
 			
 		print((i + 1))
 
@@ -95,3 +89,9 @@ func init_skills() -> void:
 	for skill_id in [1,1,1,2,2,3]:
 		var skill_instance = skill_templates[skill_id].duplicate()
 		enemy.skills.append(skill_instance)
+		
+func apply_skills_to_UI():
+	for player in players:
+		var col := player.get_node_or_null("SkillsColumn")
+		if col:
+			col.show_skills(player)

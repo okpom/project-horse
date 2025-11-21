@@ -1,9 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://bxo7gl2mf7ho4"]
 
-[ext_resource type="Texture2D" uid="uid://ccapfxxjtvyfw" path="res://assets/UI_Visuals/Skills_Icons/melee_buff.png" id="1_hy61c"]
 [ext_resource type="Script" uid="uid://dcfai3hgd66te" path="res://scripts/UI/skill_description_box.gd" id="1_xcspw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xcspw"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_hy61c"]
 
 [node name="SkillDescriptionBox" type="Control"]
 layout_mode = 3
@@ -24,7 +25,7 @@ offset_left = 8.0
 offset_top = 8.0
 offset_right = 58.0
 offset_bottom = 58.0
-texture = ExtResource("1_hy61c")
+texture = SubResource("CanvasTexture_hy61c")
 
 [node name="Name" type="Label" parent="Panel"]
 layout_mode = 0

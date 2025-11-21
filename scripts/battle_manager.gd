@@ -23,6 +23,8 @@ var UI_Test_System: BossFightManager
 var players: Array = []
 var enemy: Entity
 
+
+
 # Initialize subsystems and start battle
 func _ready():
 	# Adriano's testing before moving to prelim
@@ -66,6 +68,9 @@ func start_battle():
 	# Store original skill pools for all players
 	for player in players:
 		action_handler.store_original_pool(player)
+		
+	# Sets action_handlers boss ref to this one 
+	action_handler.set_boss_reference(enemy)
 	
 	_start_skill_selection()
 
@@ -80,8 +85,28 @@ func _start_skill_selection():
 	# Make boss skills visible to UI
 	action_handler.set_boss_skills(boss_skills)
 	
+	# populates empty boss skill slots with P; NP if unsuccessful
+	action_handler.populate_entity_skill_bar() 
+	
 	# Setup skill selection for all characters
 	action_handler.setup_selection(players)
+	
+	# Generate red preview arrows. Only visible when hovering over boss/enemy entity 
+	action_handler.prepare_preview_arrows()
+	
+	"""
+	TODO: Load the player skills into the skills_columns. For each players, load up to 9 skills
+	(for 3 columns with 3 skills each). Loading also includes updating the description box 
+	labels with 
+	
+	Right now skills dont have much info
+	
+
+	TODO: The player can click on 
+	"""
+	
+	# populates the 
+	action_handler.populate_player_skill_selection()
 	
 	# Wait for all character selections to complete
 	# UI should call action_handler.set_skill_for_slot() multiple times
@@ -127,7 +152,7 @@ func _get_boss_skills() -> Array:
 		skills.append(skill_slot)
 		
 		# Print the boss' skill selection
-		print("  Boss Slot %d -> Player %d Slot %d (Skill %d)" % 
+		print("  [_get_boss_skills()] Boss Slot %d -> Player %d Slot %d (Skill %d)" % 
 			[boss_slot_index, target_player_index, target_slot_index, random_skill.skill_id])
 	
 	return skills
@@ -168,3 +193,6 @@ func _end_battle():
 		print("Loss!")
 	
 	# TODO: Add scene transitions or victory/defeat screens
+
+func _on_start_combat_pressed() -> void:
+	action_handler.request_combat_start()

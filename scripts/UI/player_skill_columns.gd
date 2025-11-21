@@ -11,11 +11,11 @@ const SKILL_ICONS : Array[Texture2D] = [
 	preload("res://assets/UI_Visuals/Skills_Icons/team_heal.png"),
 ]
 
-@onready var col1: GridContainer = $TripleCol/Column1/SkillsContainer
-@onready var col2: GridContainer = $TripleCol/Column2/SkillsContainer
-@onready var col3: GridContainer = $TripleCol/Column3/SkillsContainer
+@onready var col1: GridContainer = $LayoutAnchorFixer/TripleCol/Column1/SkillsContainer
+@onready var col2: GridContainer = $LayoutAnchorFixer/TripleCol/Column2/SkillsContainer
+@onready var col3: GridContainer = $LayoutAnchorFixer/TripleCol/Column3/SkillsContainer
 @onready var desc_box: SkillDescriptionBox = $CanvasLayer/SkillDescriptionBox
-@onready var root_3 = $TripleCol
+@onready var root_3 = $LayoutAnchorFixer/TripleCol
 
 # sibling under the same Player node
 @onready var player_bar: SkillsBar = (get_parent().get_node_or_null("SkillsBar")) as SkillsBar
@@ -27,88 +27,90 @@ func _ready():
 	root_3.visible = false
 	columns = [col1, col2, col3]
 	desc_box.visible = false
-	#print("[SkillsColumn] Ready. Columns =", columns.size())
-	print("[SkillsColumn] Ready.")
+	#print("[SkillsColumn] Ready.")
 
-func generate_fake_skills():
-	print("[SkillsColumn] generate_skills()")
+func generate_placeholder_skill_icons():
+	print("[SkillsColumn] generate_placeholder_skill_icons()")
 	root_3.visible = true
-
-	# Clear old icons
+	 # Connect hover signals to existing ColorRects
 	for container in columns:
-		for child in container.get_children():
-			child.queue_free()
+		for icon in container.get_children():
+			if not icon.mouse_entered.is_connected(_on_icon_hover_enter):
+				icon.mouse_entered.connect(_on_icon_hover_enter.bind(icon))
+			if not icon.mouse_exited.is_connected(_on_icon_hover_exit):
+				icon.mouse_exited.connect(_on_icon_hover_exit.bind(icon))
 
-	var icon_size := Vector2(100, 100)
+func _on_icon_hover_enter(icon: Control):
+	# TextureRect case (real skills later)
+	if icon is TextureRect:
+		desc_box.icon_tex.texture = icon.texture
+		desc_box.name_label.text = icon.get_meta("skill").name if icon.get_meta("skill") != null else ""
+		desc_box.visible = true
 
-	for container in columns:
-		for i in range(ROWS_PER_COLUMN):
+	# Placeholder case
+	elif icon is ColorRect:
+		desc_box.icon_tex.texture = null
+		desc_box.name_label.text = "Placeholder"
+		desc_box.visible = true
 
-			# Random icon
-			var tex: Texture2D = SKILL_ICONS[randi() % SKILL_ICONS.size()]
+	# Label case (P)
+	elif icon is Label:
+		desc_box.icon_tex.texture = null
 
-			var icon := TextureRect.new()
-			icon.texture = tex
-			icon.custom_minimum_size = icon_size
-			icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		var px = icon.get_meta("px_code")
+		if px:
+			desc_box.name_label.text = px
+		else:
+			desc_box.name_label.text = icon.text  # fallback
 
-			container.add_child(icon)
+		desc_box.visible = true
 
-			# Connect hover events
-			icon.mouse_entered.connect(_on_icon_hover_enter.bind(icon))
-			icon.mouse_exited.connect(_on_icon_hover_exit.bind(icon))
-
-			print("  Added icon:", tex)
-
-func _on_icon_hover_enter(icon: TextureRect):
-	print("[Hover] enter:", icon.texture)
-
-	# Set the SAME icon texture in the box
-	desc_box.icon_tex.texture = icon.texture
-
-	# Position next to cursor
-	#desc_box.global_position = get_global_mouse_position() + Vector2(20, 20)
+	# Follow cursor
 	desc_box.position = get_viewport().get_mouse_position() + Vector2(20, 20)
 
-	desc_box.visible = true
-
-func _on_icon_hover_exit(icon: TextureRect):
-	print("[Hover] exit")
+func _on_icon_hover_exit(icon: Control):
+	#print("[Hover] exit")
 	desc_box.visible = false
 
-#  RANDOM PLACEHOLDER ICONS (BEFORE REAL PLAYER SKILLS ARE ASSIGNED)
-func generate_skills():
-	print("\n[SkillsColumn] generate_skills()")
+#func populate_skill_icons(available_skills: Array):
+	#print("[SkillsColumn] populate_skill_icons() with", available_skills.size(), "skills")
+#
+	#var skill_index := 0   # where we are in the player's skill list
+#
+	#for col_i in range(columns.size()):
+		#var container = columns[col_i]
+#
+		#for row_i in range(container.get_child_count()):
+			#if skill_index >= available_skills.size():
+				## no more skills → leave placeholder
+				#continue
+#
+			#var skill: Skill = available_skills[skill_index]
+			#var icon_node = container.get_child(row_i)
+#
+			## Switch placeholder (ColorRect) to TextureRect if needed
+			#if icon_node is ColorRect:
+				#var tex_node := TextureRect.new()
+				#tex_node.custom_minimum_size = icon_node.custom_minimum_size
+				#tex_node.size = icon_node.size
+				#container.remove_child(icon_node)
+				#icon_node.queue_free()
+				#icon_node = tex_node
+				#container.add_child(icon_node)
+#
+			## Assign icon + skill metadata
+			#if icon_node is TextureRect:
+				#icon_node.texture = skill.icon_texture
+				#icon_node.set_meta("skill", skill)
+#
+			## Connect hover signals
+			#icon_node.mouse_entered.connect(_on_icon_hover_enter.bind(icon_node))
+			#icon_node.mouse_exited.connect(_on_icon_hover_exit.bind(icon_node))
+#
+			##print("  [+] Column", col_i, "Row", row_i, "SkillID =", skill.skill_id)
+#
+			#skill_index += 1
 
-	root_3.visible = true
-
-	# Clear old icons
-	for container in columns:
-		for child in container.get_children():
-			child.queue_free()
-	print("  Cleared old icons.")
-
-	var icon_size := Vector2(100, 100)
-
-	for col_i in range(columns.size()):
-		var container = columns[col_i]
-		for row_i in range(ROWS_PER_COLUMN):
-
-			var tex: Texture2D = SKILL_ICONS[randi() % SKILL_ICONS.size()]
-			var icon := TextureRect.new()
-
-			icon.texture = tex
-			icon.custom_minimum_size = icon_size
-			icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-
-			icon.set_meta("skill", null)   # placeholder has no skill yet
-
-			container.add_child(icon)
-
-			print("  [+] Placeholder icon added :: Column", col_i,
-				  "Row", row_i, "Texture =", tex.resource_path)
-
-	print("  Placeholder icons created. Hover NOT connected.\n")
 
 #  ASSIGN REAL SKILLS AND CONNECT HOVER EVENTS
 func show_skills(player: Entity) -> void:
@@ -120,73 +122,36 @@ func show_skills(player: Entity) -> void:
 	print("  Total skills found =", skills.size())
 
 	for col_i in range(columns.size()):
+		
 		var container = columns[col_i]
 
 		for row_i in range(container.get_child_count()):
 			var icon = container.get_child(row_i)
+			print("[DEBUG show_skills BEFORE] Column", col_i+1, "Row", row_i+1, "is:", icon.get_class())
 
 			# Reset metadata + signals
 			icon.set_meta("skill", null)
 			#_disconnect_hover(icon)
 
 			if skill_index >= skills.size():
-				print("    [-] No skill for Column", col_i, "Row", row_i, "(empty slot)")
+				#print("    [-] No skill for Column", col_i, "Row", row_i, "(empty slot)")
 				continue
 
 			# Assign real skill
 			var skill: Skill = skills[skill_index]
 			icon.set_meta("skill", skill)
 
-			print("    [+] Skill assigned -> Column", col_i,
-				  "Row", row_i, "SkillID =", skill.skill_id)
+			#print("    [+] Skill assigned -> Column", col_i,
+				  #"Row", row_i, "SkillID =", skill.skill_id)
 
 			# Set real texture if provided
 			if icon is TextureRect and skill.icon_texture:
 				icon.texture = skill.icon_texture
-				print("       Set icon texture:", skill.icon_texture.resource_path)
+				#print("       Set icon texture:", skill.icon_texture.resource_path)
 
-			#_connect_hover(icon)
-			print("       Hover connected.")
+			##_connect_hover(icon)
+			#print("       Hover connected.")
 
 			skill_index += 1
 
 	print("[SkillsColumn] Skill assignment complete.\n")
-
-## SAFE SIGNAL DISCONNECT (REPLACES disconnect_all)
-#func _disconnect_hover(icon: Control):
-	## Disconnect only the callback this script uses
-	#if icon.mouse_entered.is_connected(_on_skill_mouse_entered):
-		#print("       [Disconnect] mouse_entered for", icon.name)
-		#icon.mouse_entered.disconnect(_on_skill_mouse_entered)
-#
-	#if icon.mouse_exited.is_connected(_on_skill_mouse_exited):
-		#print("       [Disconnect] mouse_exited for", icon.name)
-		#icon.mouse_exited.disconnect(_on_skill_mouse_exited)
-#
-## CONNECT HOVER SIGNALS SAFELY
-#func _connect_hover(icon: Control):
-	#print("       [Connect] Hover signals for", icon.name)
-#
-	## ensure no duplicates — looping calls won't stack
-	#if not icon.mouse_entered.is_connected(_on_skill_mouse_entered):
-		#icon.mouse_entered.connect(_on_skill_mouse_entered.bind(icon))
-#
-	#if not icon.mouse_exited.is_connected(_on_skill_mouse_exited):
-		#icon.mouse_exited.connect(_on_skill_mouse_exited.bind(icon))
-#
-#func _on_skill_mouse_entered(icon: Control):
-	#var skill: Skill = icon.get_meta("skill")
-	#print("[Hover] mouse_entered for icon =", icon, "| skill =", skill)
-#
-	#if skill == null:
-		#print("  [Hover] Ignored — icon has NO skill metadata.")
-		#desc_box.visible = false
-		#return
-#
-	#desc_box.visible = true
-	##desc_box.update_description(skill)
-	#desc_box.global_position = get_global_mouse_position() + Vector2(20, 20)
-#
-#func _on_skill_mouse_exited(icon: Control):
-	#print("[Hover] mouse_exited for icon =", icon)
-	#desc_box.visible = false

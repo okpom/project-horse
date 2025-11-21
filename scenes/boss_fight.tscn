@@ -53,11 +53,11 @@ offset_top = 83.0
 offset_right = -381.0
 offset_bottom = 83.0
 
-[node name="ConfirmationButton" type="Button" parent="."]
-offset_left = 119.0
-offset_top = 114.0
-offset_right = 288.0
-offset_bottom = 207.0
+[node name="StartCombat" type="Button" parent="."]
+offset_left = 500.0
+offset_top = 142.0
+offset_right = 669.0
+offset_bottom = 235.0
 theme = SubResource("Theme_1hapx")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0.017732361, 0.01773239, 0.017732479, 1)
@@ -67,3 +67,5 @@ theme_override_colors/font_hover_pressed_color = Color(0.011087579, 0.011087578,
 theme_override_styles/normal = SubResource("StyleBoxFlat_7ydql")
 theme_override_styles/hover = SubResource("StyleBoxFlat_1hapx")
 text = "SEND IT"
+
+[connection signal="pressed" from="StartCombat" to="BossFightManager" method="_on_start_combat_pressed"]
