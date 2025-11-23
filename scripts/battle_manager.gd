@@ -13,26 +13,34 @@ enum State {
 var state: State = State.PRE_BATTLE
 
 # Subsystems
-#var prelim_handler: PrelimCombatHandler
+var prelim_handler: PrelimCombatHandler
 var action_handler: ActionHandler
 var combat_manager: CombatManager
 var clash_system: ClashSystem
+var UI_Test_System: BossFightManager
 
 # References to players and enemy
 var players: Array = []
 var enemy: Entity
 
-@onready var prelim_handler: PrelimCombatHandler = $BossFightManager
+
 
 # Initialize subsystems and start battle
 func _ready():
+	# Adriano's testing before moving to prelim
+	#UI_Test_System = BossFightManager.new()
+	#add_child(UI_Test_System)
+	
+	# turned off to test UI
 	_initialize_subsystems()
 	start_battle()
+	
 
-# Create and add all subsystem nodes
+
 func _initialize_subsystems():
-	#prelim_handler = PrelimCombatHandler.new()
-	#add_child(prelim_handler)
+	
+	prelim_handler = PrelimCombatHandler.new()
+	add_child(prelim_handler)
 	
 	action_handler = ActionHandler.new()
 	add_child(action_handler)
@@ -40,9 +48,9 @@ func _initialize_subsystems():
 	combat_manager = CombatManager.new()
 	add_child(combat_manager)
 	
+	
 	# TODO: Initialize clash_system when ready
 
-# Begin the battle sequence
 func start_battle():
 	state = State.PRE_BATTLE
 	
@@ -60,45 +68,45 @@ func start_battle():
 	# Store original skill pools for all players
 	for player in players:
 		action_handler.store_original_pool(player)
-	
-	# Generate UI for players and boss
-	_setup_entity_ui()
+		
+	# Sets action_handlers boss ref to this one 
+	action_handler.set_boss_reference(enemy)
 	
 	_start_skill_selection()
 
-# Setup skills bar and skills column UI for all entities
-func _setup_entity_ui():
-	# Setup player UI
-	for player in players:
-		var bar = player.get_node_or_null("SkillsBar")
-		if bar:
-			bar.show_bar()
-		
-		var col = player.get_node_or_null("SkillsColumn")
-		if col:
-			col.generate_skills()
-	
-	# Setup boss UI
-	var boss_bar = enemy.get_node_or_null("SkillsBar")
-	if boss_bar:
-		boss_bar.show_bar()
-
-# Handle the skill selection phase
+# Skill selection phase
 func _start_skill_selection():
 	state = State.SKILL_SELECTION
 	print("\n Phase: Skill Selection")
-	
-	# Setup skill selection for all characters
-	action_handler.setup_selection(players)
 	
 	# Boss selects its skills FIRST
 	var boss_skills = await _get_boss_skills()
 	
 	# Make boss skills visible to UI
-	action_handler.setup_boss(enemy, boss_skills)
+	action_handler.set_boss_skills(boss_skills)
 	
-	# Show boss preview arrows
-	action_handler.show_boss_preview()
+	# populates empty boss skill slots with P; NP if unsuccessful
+	action_handler.populate_entity_skill_bar() 
+	
+	# Setup skill selection for all characters
+	action_handler.setup_selection(players)
+	
+	# Generate red preview arrows. Only visible when hovering over boss/enemy entity 
+	action_handler.prepare_preview_arrows()
+	
+	"""
+	TODO: Load the player skills into the skills_columns. For each players, load up to 9 skills
+	(for 3 columns with 3 skills each). Loading also includes updating the description box 
+	labels with 
+	
+	Right now skills dont have much info
+	
+
+	TODO: The player can click on 
+	"""
+	
+	# populates the 
+	action_handler.populate_player_skill_selection()
 	
 	# Wait for all character selections to complete
 	# UI should call action_handler.set_skill_for_slot() multiple times
@@ -117,13 +125,13 @@ func _start_skill_selection():
 	# Execute combat phase
 	_on_skills_ready(all_skills)
 
-# Boss AI selects skills and targets (placeholder)
+# Boss AI skill selection (placeholder)
 func _get_boss_skills() -> Array:
 	var skills: Array = []
 	
 	# TODO: Replace with actual boss AI logic
 	# Boss creates skills that target specific player skill slots
-	for boss_slot_index in range(5):
+	for boss_slot_index in range(3):
 		var random_skill = enemy.skills.pick_random() if enemy.skills.size() > 0 else Skill.new(1)
 		
 		# Pick a random player
@@ -144,12 +152,12 @@ func _get_boss_skills() -> Array:
 		skills.append(skill_slot)
 		
 		# Print the boss' skill selection
-		print("  Boss Slot %d -> Player %d Slot %d (Skill %d)" % 
+		print("  [_get_boss_skills()] Boss Slot %d -> Player %d Slot %d (Skill %d)" % 
 			[boss_slot_index, target_player_index, target_slot_index, random_skill.skill_id])
 	
 	return skills
 
-# Execute combat phase with all selected skills
+# Combat phase - execute all skills in speed order
 func _on_skills_ready(skill_queue: Array):
 	state = State.COMBAT
 	print("\n Phase: Combat")
@@ -168,14 +176,14 @@ func _on_skills_ready(skill_queue: Array):
 		# Reset for next turn
 		_start_skill_selection()
 
-# Check if battle has ended (all players dead or boss dead)
+# Check if battle ended
 func _check_battle_end() -> bool:
 	var all_players_dead = players.all(func(p): return p.is_dead)
 	var enemy_dead = enemy.is_dead
 	
 	return all_players_dead or enemy_dead
 
-# Handle battle conclusion
+# Handle battle end
 func _end_battle():
 	if enemy.is_dead:
 		state = State.END_WIN
@@ -185,3 +193,6 @@ func _end_battle():
 		print("Loss!")
 	
 	# TODO: Add scene transitions or victory/defeat screens
+
+func _on_start_combat_pressed() -> void:
+	action_handler.request_combat_start()
