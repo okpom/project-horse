@@ -120,7 +120,7 @@ func _on_icon_hover_exit(icon: Control):
 
 #  ASSIGN REAL SKILLS AND CONNECT HOVER EVENTS
 func show_skills(player: Entity) -> void:
-	print("\n[SkillsColumn] show_skills() for", player.name)
+	print("\n[SkillsColumn] show_skills() for ", player.name)
 
 	var skills = player.skills
 	var skill_index := 0

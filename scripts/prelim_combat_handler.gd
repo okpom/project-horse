@@ -43,6 +43,9 @@ func spawn_players() -> void:
 		add_child(player_instance)
 		players.append(player_instance)
 		
+		# update the player's ui (ui_handler) test
+		UIHandler.refresh_ui(player_instance)
+		
 		#generate skills bar for this player
 		var bar = player_instance.get_node_or_null("SkillsBar")
 		if bar:
@@ -66,6 +69,9 @@ func spawn_enemy() -> void:
 	
 	add_child(enemy_instance)
 	enemy = enemy_instance
+	
+	# update the boss's ui (ui_handler) test
+	UIHandler.refresh_ui(enemy_instance)
 	
 	var bar: BossSkillsBar = enemy_instance.get_node_or_null("SkillsBar")
 	if bar:

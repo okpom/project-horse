@@ -3,10 +3,10 @@ extends CharacterBody2D
 
 # Combat state
 var current_hp: float = 0.0
-@export var max_hp: float = 50.0
+@export var max_hp: float = 50.0 : set = set_max_hp
 var is_defending: bool = false
 var is_dead: bool = false
-@export var skills: Array = []
+@export var skills: Array[Skill] = []
 @export var speed: float = 5
 var max_skill_slots: int = 3
 
@@ -62,3 +62,8 @@ func get_hp_percentage() -> float:
 # Checks if entity is alive
 func is_alive() -> bool:
 	return not is_dead and current_hp > 0
+
+
+func set_max_hp(hp_val:float)->void:
+	current_hp = hp_val
+	max_hp = hp_val

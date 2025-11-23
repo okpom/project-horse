@@ -3,12 +3,12 @@ extends Resource
 
 @export var skill_id: int = 0
 @export var name:String = "More cats when..."
-@export var icon:Texture = null
+#@export var icon:Texture = null
 @export var base_roll: float = 0.0
 @export var bonus_roll: float = 0.0
 @export var coins: int = 1
 @export var odds: float = 0.5
-@export var icon_texture : Texture2D
+@export var icon_texture : Texture2D = null
 # TODO: field for skill speed number next to icon...?
 
 

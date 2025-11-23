@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://dxup8n4v6j744"]
+[gd_scene load_steps=14 format=3 uid="uid://dxup8n4v6j744"]
 
 [ext_resource type="Script" uid="uid://dyuqky6004u2x" path="res://scripts/battle_manager.gd" id="2_1hapx"]
 [ext_resource type="PackedScene" uid="uid://bvedsk338f7yw" path="res://scenes/UI/SkillsColumn.tscn" id="3_85w88"]
 [ext_resource type="Script" path="res://scripts/entities/data.gd" id="3_x4w2v"]
-[ext_resource type="Script" path="res://scripts/entities/entity_schema.gd" id="4_2tdpq"]
+[ext_resource type="Script" uid="uid://py2ru281e44f" path="res://scripts/entities/entity_schema.gd" id="4_2tdpq"]
+[ext_resource type="Texture2D" uid="uid://csfjhtuiraqfw" path="res://assets/UI_Visuals/custom_drawing/Screenshot 2025-11-12 at 11.24.58 AM.png" id="5_7imqq"]
 [ext_resource type="Resource" uid="uid://bnsq3m0n6vblg" path="res://scenes/resources/player_1.tres" id="5_62gkx"]
 [ext_resource type="Resource" uid="uid://bljufy3i6mh2e" path="res://scenes/resources/boss.tres" id="6_7imqq"]
 [ext_resource type="Script" uid="uid://c73rfbsmvew6j" path="res://scripts/skills/skill.gd" id="7_r7oq6"]
@@ -13,6 +14,7 @@
 script = ExtResource("4_2tdpq")
 name = "Jesus"
 skills = Array[ExtResource("7_r7oq6")]([ExtResource("8_4ix7a"), ExtResource("8_4ix7a"), ExtResource("8_4ix7a")])
+icon_texture = ExtResource("5_7imqq")
 metadata/_custom_type_script = "uid://py2ru281e44f"
 
 [sub_resource type="Theme" id="Theme_1hapx"]

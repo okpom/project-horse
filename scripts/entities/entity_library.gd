@@ -28,7 +28,7 @@ func load_data(entity:Entity) -> void:
 			var member_name:String = member.name
 			
 			# tmp work around
-			if member_name == "icon":
+			if member_name == "icon_texture":
 				pass
 			else:
 				entity[member_name] = entity_data[member_name]
