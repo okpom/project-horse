@@ -32,7 +32,7 @@ func _ready():
 	desc_box.visible = false
 	#print("[SkillsColumn] Ready.")
 	# TODO: UI centering bug. Description boxes hovering when shifted
-	#_original_position = position   
+	#_original_position = position
 	#position = _original_position + offset_position
 
 func generate_placeholder_skill_icons():
@@ -128,7 +128,7 @@ func show_skills(player: Entity) -> void:
 	print("  Total skills found =", skills.size())
 
 	for col_i in range(columns.size()):
-		
+
 		var container = columns[col_i]
 
 		for row_i in range(container.get_child_count()):
