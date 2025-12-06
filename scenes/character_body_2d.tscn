@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://dne3otw1aqv7y"]
+
+[ext_resource type="Texture2D" uid="uid://eu2xggksde64" path="res://assets/UI_Visuals/sprites/yellow_idle.png" id="1_lj8jo"]
+
+[sub_resource type="Animation" id="Animation_g2brh"]
+resource_name = "idle"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("YellowIdle:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+
+[sub_resource type="Animation" id="Animation_dn4c7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("YellowIdle:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4vejd"]
+_data = {
+&"RESET": SubResource("Animation_dn4c7"),
+&"idle": SubResource("Animation_g2brh")
+}
+
+[node name="Yellow" type="CharacterBody2D"]
+
+[node name="YellowIdle" type="Sprite2D" parent="."]
+position = Vector2(281, 137)
+texture = ExtResource("1_lj8jo")
+hframes = 4
+vframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_4vejd")
+}
