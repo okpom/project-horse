@@ -97,12 +97,12 @@ Team Member 2
 
 # Justin Pak
   ### Producer
-    asdf
+  asdf
   ### Visual Cohesion/Style Guide
-    asdf
+  asdf
   ### Other Contributions
-    #### Test
-      asdf
+  #### Test
+  asdf
     
 For each team member, you shoudl work of your role and sub-role in terms of the content of the course. Please look at the role sections below for specific instructions for each role.
 
