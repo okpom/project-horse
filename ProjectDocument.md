@@ -7,14 +7,20 @@
 ## Project Resources
 
 [Web-playable version of your game.](https://itch.io/)  
-[Trailor](https://youtube.com)  
-[Press Kit](https://dopresskit.com/)  
-[Proposal: make your own copy of the linked doc.](https://docs.google.com/document/d/1qwWCpMwKJGOLQ-rRJt8G8zisCa2XHFhv6zSWars0eWM/edit?usp=sharing)  
+[Proposal: make your own copy of the linked doc.](https://docs.google.com/document/d/1jB2_lGxjSw8QCz2dgsFHjkJ77vtSrayT5uPSMNy5jAg/edit?usp=sharing)  
 
 ## Gameplay Explanation ##
 
-**In this section, explain how the game should be played. Treat this as a manual within a game. Explaining the button mappings and the most optimal gameplay strategy is encouraged.**
+In battle, there is a skill selection UI that can be broken down into columns with each representing one attack slot. Players can pick one of three available skills for an attack slot, or click on the button below (either portrait or defend button) to queue up an attack skill instead. Skills are then processed in order from fastest to slowest (based on speed number below the set of skills), left-to-right and pitted against the enemy's skills. 
 
+Player skills and enemies skills then clash against each other, rolling for highest number to see who gets to attack. Players can do a QTE activated by clicking in order to gain more clash value. After clashing, whoever won the clash (winning enough times to break all the enemy skill's coins) gets to attack with the remaining coins on their skill. 
+
+Once all skills are clashed or processed, the next turn begins. This goes on until one side is defeated.
+
+**Strategy**
+Pick big numbers to go up against enemy numbers. Defend when you feel like losing is inevitable.
+
+**In this section, explain how the game should be played. Treat this as a manual within a game. Explaining the button mappings and the most optimal gameplay strategy is encouraged.**
 
 **Add it here if you did work that should be factored into your grade but does not fit easily into the proscribed roles! Please include links to resources and descriptions of game-related material that does not fit into roles here.**
 
@@ -23,6 +29,8 @@
 If your project contains code that: 1) your team did not write, and 2) does not fit cleanly into a role, please document it in this section. Please include the author of the code, where to find the code, and note which scripts, folders, or other files that comprise the external contribution. Additionally, include the license for the external code that permits you to use it. You do not need to include the license for code provided by the instruction team.
 
 If you used tutorials or other intellectual guidance to create aspects of your project, include reference to that information as well.
+
+Agentic Tools were used during the creation of an early draft of the UI code and for minor debugging.
 
 # Team Member Contributions
 
@@ -47,7 +55,55 @@ Team Member 2
     Documentation for contributions to the project outside of the main and sub roles.
 ...
 ```
+## Alexander Landess
+  ### Game Logic
+    asdf
+  ### Gameplay Testing
+    asdf
+  ### Other Contributions
+    asdf
 
+## Kynan Lewis
+  ### Level/World Designer
+    asdf
+  ### Game Feel
+    asdf
+  ### Other Contributions
+    asdf
+
+# Xiaofeng Lin
+  ### Systems and Tools Engineer
+    asdf
+  ### Build/Release Management
+    asdf
+  ### Other Contributions
+    asdf
+
+# Danielle Chang
+  ### Animation/Visuals
+    asdf
+  ### Narrative Design
+    asdf
+  ### Other Contributions
+    asdf
+
+# Adriano Melo Filho
+  ### UI/Input
+    asdf
+  ### Audio
+    asdf
+  ### Other Contributions
+    asdf
+
+# Justin Pak
+  ### Producer
+    asdf
+  ### Visual Cohesion/Style Guide
+    asdf
+  ### Other Contributions
+    #### Test
+      asdf
+    
 For each team member, you shoudl work of your role and sub-role in terms of the content of the course. Please look at the role sections below for specific instructions for each role.
 
 Below is a template for you to highlight items of your work. These provide the evidence needed for your work to be evaluated. Try to have at least four such descriptions. They will be assessed on the quality of the underlying system and how they are linked to course content. 
