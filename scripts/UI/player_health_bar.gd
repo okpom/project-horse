@@ -7,10 +7,12 @@ var entity: Entity
 @onready var label: Label = $HealthValue
 @onready var portrait_node: TextureRect = $PortraitContainer/Portrait
 
+
 func _ready() -> void:
 	entity = get_parent()
 	_update_bar()
 	bar.value = int(entity.max_hp)
+
 
 # update health bar with parent's hp
 func _update_bar() -> void:
