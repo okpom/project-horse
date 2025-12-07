@@ -1,4 +1,4 @@
-name: GDScript Format Check
+name: GDScript Format
 
 on:
   push:
@@ -12,13 +12,16 @@ on:
   workflow_dispatch:
 
 jobs:
-  format-check:
-    name: Check GDScript Formatting
+  format:
+    name: Format GDScript Files
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
 
       - name: Download GDScript Formatter
         run: |
@@ -32,23 +35,19 @@ jobs:
           chmod +x gdscript-formatter-*-linux-x86_64
           sudo mv gdscript-formatter-*-linux-x86_64 /usr/local/bin/gdscript-formatter
 
-      - name: Check GDScript formatting
+      - name: Format GDScript files
         run: |
-          echo "Checking GDScript files in scripts/ directory..."
+          echo "Formatting GDScript files in scripts/ directory..."
 
-          FAILED=0
           while IFS= read -r -d '' file; do
-            echo "Checking: $file"
-            if ! gdscript-formatter --check "$file"; then
-              echo "Formatting issues found in: $file"
-              FAILED=1
-            fi
+            echo "Formatting: $file"
+            gdscript-formatter "$file"
           done < <(find scripts -name "*.gd" -type f -print0)
 
-          if [ $FAILED -eq 1 ]; then
-            echo "Some files have formatting issues."
-            echo "Run 'gdscript-formatter <file>' locally to fix them."
-            exit 1
-          else
-            echo "All GDScript files are formatted."
-          fi
+          echo "Formatting complete."
+
+      - name: Commit formatted files
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "style: auto-format GDScript files"
+          file_pattern: "scripts/**/*.gd"
