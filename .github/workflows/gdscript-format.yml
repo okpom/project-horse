@@ -1,0 +1,54 @@
+name: GDScript Format Check
+
+on:
+  push:
+    branches: [main, master]
+    paths:
+      - "scripts/**/*.gd"
+  pull_request:
+    branches: [main, master]
+    paths:
+      - "scripts/**/*.gd"
+  workflow_dispatch:
+
+jobs:
+  format-check:
+    name: Check GDScript Formatting
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download GDScript Formatter
+        run: |
+          FORMATTER_URL=$(curl -s https://api.github.com/repos/GDQuest/GDScript-formatter/releases/latest \
+            | grep "browser_download_url.*linux" \
+            | cut -d '"' -f 4)
+
+          echo "Downloading formatter from: $FORMATTER_URL"
+          curl -L -o gdscript-formatter.zip "$FORMATTER_URL"
+          unzip gdscript-formatter.zip
+          chmod +x gdscript-formatter
+          sudo mv gdscript-formatter /usr/local/bin/
+
+      - name: Check GDScript formatting
+        run: |
+          echo "Checking GDScript files in scripts/ directory..."
+
+          FAILED=0
+          while IFS= read -r -d '' file; do
+            echo "Checking: $file"
+            if ! gdscript-formatter --check "$file"; then
+              echo "Formatting issues found in: $file"
+              FAILED=1
+            fi
+          done < <(find scripts -name "*.gd" -type f -print0)
+
+          if [ $FAILED -eq 1 ]; then
+            echo "Some files have formatting issues."
+            echo "Run 'gdscript-formatter <file>' locally to fix them."
+            exit 1
+          else
+            echo "All GDScript files are formatted."
+          fi
