@@ -23,7 +23,7 @@ jobs:
       - name: Download GDScript Formatter
         run: |
           FORMATTER_URL=$(curl -s https://api.github.com/repos/GDQuest/GDScript-formatter/releases/latest \
-            | grep "browser_download_url.*linux" \
+            | grep "browser_download_url.*linux-x86_64" \
             | cut -d '"' -f 4)
 
           echo "Downloading formatter from: $FORMATTER_URL"
