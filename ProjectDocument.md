@@ -2,7 +2,7 @@
 
 ## Summary ##
 
-**A paragraph-length pitch for your game.**
+Turn-based autobattler 
 
 ## Project Resources
 
@@ -97,7 +97,7 @@ Team Member 2
 
 # Justin Pak
   ### Producer
-  asdf
+  Project Trello: https://trello.com/b/zCzT0oPH/project-horse-ecs-179
   ### Visual Cohesion/Style Guide
   asdf
   ### Other Contributions
