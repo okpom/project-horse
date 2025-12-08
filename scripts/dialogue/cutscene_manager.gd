@@ -14,6 +14,7 @@ func _ready() -> void:
 	# play a cutscene to test
 	play_cutscene('res://scenes/resources/intro_cutscene.dialogue')
 
+
 func play_cutscene(path: String, key: String = "start") -> void:
 	_end_cutscene() # clean previous
 
