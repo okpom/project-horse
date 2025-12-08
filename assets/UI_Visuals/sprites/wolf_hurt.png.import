@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://eqgwgcoakeg"
-path="res://.godot/imported/red_attack1.png-aaa4b8d39e040f131bd2fc414d21da16.ctex"
+uid="uid://b4lohescjpwhg"
+path="res://.godot/imported/wolf_hurt.png-6a1bf5d4e6dcea86fcf497904d92cb2a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/UI_Visuals/sprites/red_attack1.png"
-dest_files=["res://.godot/imported/red_attack1.png-aaa4b8d39e040f131bd2fc414d21da16.ctex"]
+source_file="res://assets/UI_Visuals/sprites/wolf_hurt.png"
+dest_files=["res://.godot/imported/wolf_hurt.png-6a1bf5d4e6dcea86fcf497904d92cb2a.ctex"]
 
 [params]
 
