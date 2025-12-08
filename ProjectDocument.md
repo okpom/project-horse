@@ -97,16 +97,69 @@ Team Member 2
 
 # Justin Pak
 ### Producer
-High Level Design - The game's original high level design consists of separate classes being handled by a global state machine. The intent was to break down the subsystems so that they are compartmentalized and can be worked on independently of each other.
-  
-<img src="DocImages/high-level-1.jpg" width="500"/>
-  
-Project Trello: https://trello.com/b/zCzT0oPH/project-horse-ecs-179
+Project Trello: https://trello.com/b/zCzT0oPH/project-horse-ecs-179 - Project planning and task tracking kanban board for helping
+people know what they have to do, when they have to finish, and who has to work on it. I chose to use a Kanban board over a 
+Gantt chart because I thought it would fit better with our team's dynamic and working process.
+Also included were milestones implemented at the start of development. Other than being a part of the producer deliverables, project 
+planning was discussed as a part of class during lectures regarding the project and tools you can use to help with the process.
+
+GDScript Format Workflow - Made a GitHub workflow for automatically formatting all pushed gdscript files. This allows everyone to 
+code in their own preferred style while ensuring that all final code aligns to one consistent style. This workflow is based on the 
+portion of the course that covered Godot code style and best practices.
+
+Assigning Tasks, Holding Meetings - Held regular team meeting to make sure everyone was on the same page and took minutes for each meeting.
+
+<img src="DocImages/minutes.jpeg" width="400"/>
+
+Producer Stuff - Tried to help be a force multiplier for the team. Helped act as a middleman between team members. Coordinated responsibilities and 
+task. Keep everyone on the same page. Helped support any other team members who need assistance. Managed deadlines and scope. Made choices when things 
+had to be delayed or scoped down. GitHub workflow.
+
 ### Visual Cohesion/Style Guide
-asdf
+Moodboard/Style Guide - I worked with Danielle to nail down what the core aesthetic of the game should be. She created the first set of moodboards and I created the second set to lock in on what the game's visuals would be like. Originally, the game was leaning more towards gothic or fantasy elements. 
+
+<img src="DocImages/compiled-moodboard-2.jpeg" width="400"/>
+
+Later, we decided to go for an "urban fairytale" aesthetic that incoporates storybook and fairytale characters and motifs into a slight run-down urban setting (one of the initial inspiration was Hong Kong in the 80/90s). The characters moved away from cloaks and tunics and more towards suits and ties.
+
+<img src="DocImages/compiled-moodboard-3.jpeg" width="400"/>
+
+As assets were being developed, I helped make sure that characters, enemies, and the environment aligned with the visual style that was created.
+
+Color Palette Guidance - I worked with Danielle to ensure the art in the game aligned with the palette that was decided upon (muted colors with clear grayscale values). Art was checked to make sure this aligned with the game's theming and any changes regarding color were made directly on the image files themselves, saving us time on requiring in-engine color adjustments. We were able to do this because we weren't doing anything related to lighting in the game itself.
 ### Other Contributions
-#### Test
-asdf
+High Level Design - The game's original high level design consists of separate classes being handled by a global state machine. The intent was to break down the subsystems so that they are compartmentalized and can be worked on independently of each other. This system is based on portion of the course that covered different ways of creating systems (specifically the part that covered states).
+
+<img src="DocImages/high-level-1.jpeg" width="500"/>
+
+Code Review - Reviewed all code being PR'ed and made comments on changes that needed to be made to prevent potential problems compounding in the future.
+
+Character Skill Design - Designed the skills for the characters. This ties into a few of the lectures in the course that covered game design.
+
+<img src="DocImages/compiled-skills.jpeg" width="400"/>
+
+UI/Gameplay Initial Concepts - Drew up the initial UI concepts and gameplay mockups. Worked with Adriano to create the first draft version of the UI.
+
+<img src="DocImages/compiled-sketch.jpeg" width="400"/>
+<img src="DocImages/compiled-ui.jpeg" width="400"/>
+<img src="DocImages/ui-concept-3.jpeg" width="400"/>
+<img src="DocImages/mockup-1.jpeg" width="400"/>
+
+Subsystem Design - Designed the core gameplay subsystems (clashing, damage, skill selection, etc). The design of these systems are based on the 
+lectures regarding game design for systems and mechanics. Designs were written out and sometimes given visual aids like clashing below:
+
+<img src="DocImages/clash-concept-1.jpeg" width="400"/>
+<img src="DocImages/clash-concept-2.jpeg" width="400"/>
+<img src="DocImages/clash-concept-3.jpeg" width="400"/>
+
+Skill Icons - Created the skill icons for both characters since no one had created them yet at the time.
+
+Audio Asset Acquisition - Looked for audio assets since none had been found at the time.
+
+
+
+
+
     
 For each team member, you shoudl work of your role and sub-role in terms of the content of the course. Please look at the role sections below for specific instructions for each role.
 

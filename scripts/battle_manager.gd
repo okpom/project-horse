@@ -29,7 +29,7 @@ func _ready():
 	# Adriano's testing before moving to prelim
 	#UI_Test_System = BossFightManager.new()
 	#add_child(UI_Test_System)
-	
+
 	# turned off to test UI
 	_initialize_subsystems()
 	start_battle()
@@ -38,43 +38,43 @@ func _ready():
 func _initialize_subsystems():
 	prelim_handler = PrelimCombatHandler.new()
 	add_child(prelim_handler)
-	
+
 	action_handler = ActionHandler.new()
 	add_child(action_handler)
-	
+
 	# Initialize clash system
 	clash_system = ClashSystem.new()
 	add_child(clash_system)
-	
+
 	# Initialize combat manager
 	combat_manager = CombatManager.new()
 	add_child(combat_manager)
-	
+
 	# Wire clash system into combat manager
 	combat_manager.clash_system = clash_system
 
 
 func start_battle():
 	state = State.PRE_BATTLE
-	
+
 	# Pre-battle spawn and setup
 	prelim_handler.setup_fight()
-	
+
 	# Store references
 	players = prelim_handler.players
 	enemy = prelim_handler.enemy
-	
+
 	# Pass references to combat manager
 	combat_manager.players = players
 	combat_manager.boss = enemy
-	
+
 	# Store original skill pools for all players
 	for player in players:
 		action_handler.store_original_pool(player)
-		
+
 	# Sets action_handlers boss ref to this one
 	action_handler.set_boss_reference(enemy)
-	
+
 	_start_skill_selection()
 
 
@@ -82,45 +82,45 @@ func start_battle():
 func _start_skill_selection():
 	state = State.SKILL_SELECTION
 	print("\nPhase: Skill Selection\n")
-	
+
 	# Boss selects its skills FIRST
 	var boss_skills = await _get_boss_skills()
-	
+
 	# Make boss skills visible to UI
 	action_handler.set_boss_skills(boss_skills)
-	
+
 	# populates empty boss skill slots with P; NP if unsuccessful
 	action_handler.populate_entity_skill_bar()
-	
+
 	# Setup skill selection for all characters
 	action_handler.setup_selection(players)
-	
+
 	# Generate red preview arrows. Only visible when hovering over boss/enemy entity
 	action_handler.prepare_preview_arrows()
-	
+
 	# Connect boss hover to show/hide arrows
 	action_handler.connect_boss_hover_signals()
-	
+
 	# Setup click handlers for skill bars
 	action_handler.select_player_skills()
-	
+
 	# Wait for all character selections to complete
 	# UI should call action_handler.set_skill_for_slot() multiple times
 	await action_handler.all_selections_complete
-	
+
 	# display all player selections
 	action_handler.display_player_selections()
-	
+
 	# Get all player skills
 	var all_skills = action_handler.get_all_selected_skills()
-	
+
 	# Add boss skills to the queue
 	all_skills += boss_skills
-	
+
 	# Wait for "Start Combat" button press
 	print("\nWaiting for 'Start Combat' button...")
 	await action_handler.combat_start_requested
-	
+
 	# Execute combat phase
 	_on_skills_ready(all_skills)
 
@@ -129,18 +129,18 @@ func _start_skill_selection():
 func _get_boss_skills() -> Array:
 	print("Boss selecting skills and targetting players...")
 	var skills: Array = []
-	
+
 	# TODO: Replace with actual boss AI logic
 	# Boss creates skills that target specific player skill slots
 	for boss_slot_index in range(3):
 		var random_skill = enemy.skills.pick_random() if enemy.skills.size() > 0 else Skill.new(1)
-		
+
 		# Pick a random player
 		var target_player_index = randi() % players.size()
-		
+
 		# Pick a random skill slot from that player
 		var target_slot_index = randi() % players[target_player_index].max_skill_slots
-		
+
 		# Create boss skill targeting a specific player's specific slot
 		var skill_slot = ActionHandler.SkillSlot.new(
 			enemy, # user
@@ -151,8 +151,8 @@ func _get_boss_skills() -> Array:
 			players[target_player_index] # entity being targeted
 		)
 		skills.append(skill_slot)
-		
-	
+
+
 	return skills
 
 
@@ -160,24 +160,24 @@ func _get_boss_skills() -> Array:
 func _on_skills_ready(skill_queue: Array):
 	state = State.COMBAT
 	print("\nPhase: Combat")
-	
+
 	# Sort all skills by user speed (highest speed first)
 	skill_queue.sort_custom(func(a, b): return a.user.speed > b.user.speed)
-	
+
 	# Let combat manager resolve skills
 	print("Now entering combat_manager from battle_manager")
 	await combat_manager.resolve_skills(skill_queue)
 	print("Combat manager has finished!")
-	
+
 	# Consume used skills from player decks (removes from column_pools)
 	action_handler.consume_used_skills()
-	
+
 	# Replace only the used skills in the 3x3 grid with new ones
 	action_handler.replace_used_skills_in_grid()
-	
+
 	# Clear the player selections and reset UI (clears the skill bar above players)
 	action_handler.clear_selections_and_ui()
-	
+
 	# After combat, check for end
 	if _check_battle_end():
 		_end_battle()
@@ -190,7 +190,7 @@ func _on_skills_ready(skill_queue: Array):
 func _check_battle_end() -> bool:
 	var all_players_dead = players.all(func(p): return p.is_dead)
 	var enemy_dead = enemy.is_dead
-	
+
 	return all_players_dead or enemy_dead
 
 
@@ -202,7 +202,7 @@ func _end_battle():
 	else:
 		state = State.END_LOSS
 		print("Loss!")
-	
+
 	# TODO: Add scene transitions or victory/defeat screens
 
 
