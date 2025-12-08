@@ -1,22 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c01s1f5nbu47t"]
+[gd_scene load_steps=11 format=3 uid="uid://c01s1f5nbu47t"]
 
 [ext_resource type="Texture2D" uid="uid://bixw5jm5lgt3b" path="res://assets/UI_Visuals/sprites/red_idle.png" id="1_xhyef"]
-
-[sub_resource type="Animation" id="Animation_hatri"]
-resource_name = "idle"
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("RedIdle:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.13333334, 0.19999999, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
-}
+[ext_resource type="Texture2D" uid="uid://c1mmt6rew2dj6" path="res://assets/UI_Visuals/sprites/red_guard.png" id="2_gr2ii"]
+[ext_resource type="Texture2D" uid="uid://eqgwgcoakeg" path="res://assets/UI_Visuals/sprites/red_attack_1.png" id="3_qeo7v"]
+[ext_resource type="Texture2D" uid="uid://mjio0fwg6lsb" path="res://assets/UI_Visuals/sprites/red_hurt.png" id="4_e2jhp"]
+[ext_resource type="Texture2D" uid="uid://dnrx20ayo3v58" path="res://assets/UI_Visuals/sprites/red_move.png" id="5_llaa4"]
+[ext_resource type="Texture2D" uid="uid://dxvkib2xrriny" path="res://assets/UI_Visuals/sprites/red_attack_2.png" id="6_ireqd"]
 
 [sub_resource type="Animation" id="Animation_fey4y"]
 length = 0.001
@@ -35,6 +24,22 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_5o1my"]
 resource_name = "RedHurt"
+
+[sub_resource type="Animation" id="Animation_hatri"]
+resource_name = "idle"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RedIdle:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.19999999, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bhr3b"]
 _data = {
@@ -56,3 +61,36 @@ position = Vector2(125, 166)
 texture = ExtResource("1_xhyef")
 hframes = 4
 vframes = 3
+
+[node name="RedGuard" type="Sprite2D" parent="."]
+position = Vector2(124, 165)
+texture = ExtResource("2_gr2ii")
+hframes = 3
+vframes = 3
+
+[node name="RedHurt" type="Sprite2D" parent="."]
+position = Vector2(124, 167)
+texture = ExtResource("4_e2jhp")
+hframes = 3
+vframes = 3
+
+[node name="RedMove" type="Sprite2D" parent="."]
+position = Vector2(-116, 142.5)
+scale = Vector2(1.6511111, 1.6816666)
+texture = ExtResource("5_llaa4")
+hframes = 3
+vframes = 3
+
+[node name="RedAttack1" type="Sprite2D" parent="."]
+position = Vector2(485, 132)
+scale = Vector2(1.702118, 1.6564583)
+texture = ExtResource("3_qeo7v")
+hframes = 3
+vframes = 2
+
+[node name="RedAttack2" type="Sprite2D" parent="."]
+position = Vector2(526, 118)
+scale = Vector2(1.7866668, 1.7204167)
+texture = ExtResource("6_ireqd")
+hframes = 2
+vframes = 2
