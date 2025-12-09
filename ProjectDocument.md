@@ -81,29 +81,27 @@ Team Member 2
 
 # Danielle Chang
   ### Animation/Visuals
-    #### Moodboards
-    Came up with moodboards on potential themes 
-    ![moodboard_4](https://github.com/user-attachments/assets/d8a4a537-ede5-42b4-9c4d-20cdace67dd3)
-    ![moodboard_3](https://github.com/user-attachments/assets/3a5a8113-9fbd-486f-8352-c0a7bcc835c7)
-    ![moodboard_2](https://github.com/user-attachments/assets/910e07cd-4ea0-43aa-8445-0b6e2e2aa866)
-    ![moodboard_1](https://github.com/user-attachments/assets/d6de4dda-d39f-44b8-a24e-c0c9bade8eee)
+Moodboards
+Came up with multiple moodboards on potential themes/directions we could take our game. As I was solely in charge of making most of the assests for the game, I wanted to have a clear direction in which I was gonna go that my team was also on board with. (example of one we didn't use below).
+![moodboard_4](https://github.com/user-attachments/assets/d8a4a537-ede5-42b4-9c4d-20cdace67dd3)
+And after a meeting, we decided to go with a modern story book/fairy tale vibe which we all thought was pretty cool.
     
-    #### Asset Creation
-    After coming up, 
+Asset Creation
+After agreeing on a creative direction during a meeting, I came up with mockups/initial sketches of what art style we could go for (we ended up not going for any of these), and to see if we wanted to do pixel art or regular art. Along with the main two characters I was also in charge of making and designing the mob sprites.
+<img width="2732" height="2048" alt="IMG_5069" src="https://github.com/user-attachments/assets/12b153fa-7243-41d6-85c2-fde60566cc07" />
+<img width="2732" height="2048" alt="IMG_5087" src="https://github.com/user-attachments/assets/f295c6d6-1147-4534-8e5f-965bffe9203e" />
+<img width="2732" height="2048" alt="IMG_5088" src="https://github.com/user-attachments/assets/b5b53268-bacf-41e2-aaa3-b0eddcc262c6" />
 
-    Some inital sketches I came up with
-    <img width="2732" height="2048" alt="IMG_5069" src="https://github.com/user-attachments/assets/12b153fa-7243-41d6-85c2-fde60566cc07" />
-    <img width="2732" height="2048" alt="IMG_5087" src="https://github.com/user-attachments/assets/f295c6d6-1147-4534-8e5f-965bffe9203e" />
-    <img width="2732" height="2048" alt="IMG_5088" src="https://github.com/user-attachments/assets/b5b53268-bacf-41e2-aaa3-b0eddcc262c6" />
-    
-    Color Pallettes/Overall Mood
-    I thought that the colors should also play a role in and suggested the idea of doing a more muted color pallete with color palletes 
+I made multiple animations for the two characters, including idle, move, guard, hurt, and several attack animations for each (as we learned in class they should always being doing something even if it's just an idle animation). The two boss sprites also have multiple animations to keep NPC's moving at all times. 
+
+Color Pallettes/Overall Mood
+I thought that the colors should also play a role in game feel and after initial character pitches and design, I suggested the idea of doing a more muted/monochromatic color palleteand after some talking with Justin we decided to go ahead with that idea and add in signature colors for each character to kind of represent their fairy tale and make them a little more recognizable.
       
-    Start Screen
-    I wanted to make a st
+Start Screen
+I wanted to make a starting screen for our game because user experience is key to me and I know every detail matters (especially first impressions), so continuing with the idea of story book I made a Start Screen with a story book vibe where it feels like the     .
     
-    Background and other Assests
-      
+Background and other Assests
+I also gave consideration to the .
     
   ### Narrative Design
     Color Pallettes/Overall Mood
