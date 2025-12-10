@@ -3,7 +3,7 @@ extends Node
 
 signal cutscene_finished
 
-@export var cutscene_music: AudioStream   
+@export var cutscene_music: AudioStream
 @onready var music_player := $MusicPlayer
 
 var cutscene_scene: PackedScene = preload("res://scenes/dialogue/cutscene_dialogue.tscn")
@@ -23,7 +23,7 @@ func _ready() -> void:
 
 func play_cutscene(path: String, key: String = "start") -> void:
 	_end_cutscene() # clean previous
-	
+
 	# play music if assigned
 	if cutscene_music:
 		music_player.stream = cutscene_music
