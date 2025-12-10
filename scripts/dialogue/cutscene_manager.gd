@@ -1,16 +1,18 @@
 class_name CutsceneManager
 extends Node
 
+signal cutscene_finished
+
 @export var cutscene_music: AudioStream   
-@onready var music_player := $MusicPlayer2
+@onready var music_player := $MusicPlayer
 
 var cutscene_scene: PackedScene = preload("res://scenes/dialogue/cutscene_dialogue.tscn")
 var instance: Node = null
-
 var canvas_layer: CanvasLayer = null
 
 
 func _ready() -> void:
+	# check if music loaded...
 	print("[CutsceneManager] Ready. cutscene_music =", cutscene_music)
 	DialogueManager.got_dialogue.connect(_on_dialogue)
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
@@ -26,9 +28,6 @@ func play_cutscene(path: String, key: String = "start") -> void:
 	if cutscene_music:
 		music_player.stream = cutscene_music
 		music_player.play()
-		print("[CutsceneManager] MusicPlayer is_playing:", music_player.playing)
-	else:
-		print("[CutsceneManager] No cutscene_music assigned!")
 
 	var res = load(path) as DialogueResource
 	instance = cutscene_scene.instantiate()
@@ -39,7 +38,6 @@ func play_cutscene(path: String, key: String = "start") -> void:
 
 
 func _on_dialogue(line: DialogueManager.DialogueLine) -> void:
-	print("[CutsceneManager] Dialogue line:", line.character)
 	if instance and instance.has_method("set_focus"):
 		if line.character.contains("Red"):
 			instance.set_focus("red")
@@ -48,18 +46,15 @@ func _on_dialogue(line: DialogueManager.DialogueLine) -> void:
 
 
 func _on_dialogue_ended(_resource: DialogueResource) -> void:
-	print("[CutsceneManager] Dialogue ended — stopping cutscene")
 	_end_cutscene()
+	emit_signal("cutscene_finished")
+	print("[CutsceneManager] Cutscene finished signal emitted.")
 
 
 func _end_cutscene() -> void:
-	print("[CutsceneManager] _end_cutscene() called")
 	if music_player:
-		print("[CutsceneManager] MusicPlayer currently playing:", music_player.playing)
 		music_player.stop()
-		print("[CutsceneManager] MusicPlayer stopped")
 
 	if instance:
-		print("[CutsceneManager] Removing cutscene instance")
 		instance.queue_free()
 		instance = null

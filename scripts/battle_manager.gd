@@ -10,6 +10,16 @@ enum State {
 	END_LOSS
 }
 
+@export var skill_selection_music: AudioStream
+@export var combat_music: AudioStream
+@export var victory_music: AudioStream
+@export var defeat_music: AudioStream
+
+@onready var skill_music_player := $SkillMusicPlayer
+@onready var combat_music_player := $CombatMusicPlayer
+@onready var victory_music_player := $VictoryMusicPlayer
+@onready var defeat_music_player := $DefeatMusicPlayer
+
 var state: State = State.PRE_BATTLE
 
 # Subsystems
@@ -17,7 +27,6 @@ var prelim_handler: PrelimCombatHandler
 var action_handler: ActionHandler
 var combat_manager: CombatManager
 var clash_system: ClashSystem
-var UI_Test_System: BossFightManager
 
 # References to players and enemy
 var players: Array = []
@@ -32,13 +41,8 @@ var clash_loser_is_attacker:bool
 
 # Initialize subsystems and start battle
 func _ready():
-	# Adriano's testing before moving to prelim
-	#UI_Test_System = BossFightManager.new()
-	#add_child(UI_Test_System)
-
-	# turned off to test UI
 	_initialize_subsystems()
-	start_battle()
+	#start_battle() # moved to boss_fight.gd
 
 
 func _initialize_subsystems():
@@ -96,6 +100,7 @@ func start_battle():
 ## Skill selection phase
 func _start_skill_selection():
 	state = State.SKILL_SELECTION
+	_update_music()
 	print("\nPhase: Skill Selection\n")
 
 	# Boss selects its skills FIRST
@@ -135,6 +140,8 @@ func _start_skill_selection():
 	# Wait for "Start Combat" button press
 	print("\nWaiting for 'Start Combat' button...")
 	await action_handler.combat_start_requested
+	
+	skill_music_player.stop()
 
 	# Execute combat phase
 	_on_skills_ready(all_skills)
@@ -175,6 +182,7 @@ func _get_boss_skills() -> Array:
 func _on_skills_ready(skill_queue: Array):
 	state = State.COMBAT
 	print("\nPhase: Combat")
+	_update_music()
 
 	# Sort all skills by user speed (highest speed first)
 	skill_queue.sort_custom(func(a, b): return a.user.speed > b.user.speed)
@@ -213,9 +221,11 @@ func _check_battle_end() -> bool:
 func _end_battle():
 	if enemy.is_dead:
 		state = State.END_WIN
+		_update_music()
 		print("Win!")
 	else:
 		state = State.END_LOSS
+		_update_music()
 		print("Loss!")
 
 	# TODO: Add scene transitions or victory/defeat screens
@@ -334,3 +344,42 @@ func _on_clash_finished(winner_slot, loser_slot, damage_total, result) -> void:
 		
 		var is_heads := i < heads
 		coin.spin(is_heads)
+
+# changes music depending on the battle state
+func _update_music() -> void:
+	skill_music_player.stop()
+	combat_music_player.stop()
+	victory_music_player.stop()
+	defeat_music_player.stop()
+
+	match state:
+		State.SKILL_SELECTION:
+			if skill_selection_music:
+				skill_music_player.stream = skill_selection_music
+				skill_music_player.play()
+			else:
+				print("[Music] No skill_selection_music assigned.")
+
+		State.COMBAT:
+			if combat_music:
+				combat_music_player.stream = combat_music
+				combat_music_player.play()
+			else:
+				print("[Music] No combat_music assigned.")
+				
+		State.END_WIN:
+			if victory_music:
+				victory_music_player.stream = victory_music
+				victory_music_player.play()
+			else:
+				print("[Music] No victory_music assigned.")
+
+		State.END_LOSS:
+			if defeat_music:
+				defeat_music_player.stream = defeat_music
+				defeat_music_player.play()
+			else:
+				print("[Music] No defeat_music assigned.")
+
+		_:
+			print("[Music] No music for current state: ", state)

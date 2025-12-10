@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b52ptuas6upr" path="res://scripts/title/start_button.gd" id="1_fgkus"]
 [ext_resource type="Script" uid="uid://dxr5wynvcs2hs" path="res://scripts/title_screen.gd" id="1_sa3yf"]
-[ext_resource type="AudioStream" uid="uid://le6pqdt2bkxj" path="res://assets/Sounds/MainMenuMusic/xDeviruchi - 8-bit Fantasy  & Adventure Music (2021)/xDeviruchi - Title Theme .wav" id="2_s4lrb"]
+[ext_resource type="AudioStream" uid="uid://le6pqdt2bkxj" path="res://assets/Sounds/Music/xDeviruchi - 8-bit Fantasy  & Adventure Music (2021)/xDeviruchi - Title Theme .wav" id="2_s4lrb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fgkus"]
 font_size = 48
@@ -34,3 +34,4 @@ script = ExtResource("1_fgkus")
 autoplay = true
 
 [connection signal="pressed" from="StartButton" to="StartButton" method="_on_pressed"]
+
