@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dxup8n4v6j744"]
+[gd_scene load_steps=8 format=3 uid="uid://dxup8n4v6j744"]
 
 [ext_resource type="Script" uid="uid://dyuqky6004u2x" path="res://scripts/battle_manager.gd" id="2_1hapx"]
 [ext_resource type="Script" uid="uid://u8e82gkg5jsp" path="res://scripts/dialogue/cutscene_manager.gd" id="2_7ydql"]
+[ext_resource type="AudioStream" uid="uid://d1oefodk4tp1x" path="res://assets/Sounds/MainMenuMusic/xDeviruchi - 8-bit Fantasy  & Adventure Music (2021)/xDeviruchi - And The Journey Begins .wav" id="3_67f06"]
 [ext_resource type="PackedScene" uid="uid://bvedsk338f7yw" path="res://scenes/UI/SkillsColumn.tscn" id="3_85w88"]
 
 [sub_resource type="Theme" id="Theme_1hapx"]
@@ -50,6 +51,10 @@ offset_bottom = 419.0
 
 [node name="CutsceneManager" type="Node" parent="."]
 script = ExtResource("2_7ydql")
+cutscene_music = ExtResource("3_67f06")
+
+[node name="MusicPlayer2" type="AudioStreamPlayer2D" parent="CutsceneManager"]
+autoplay = true
 
 [node name="SkillsColumn" parent="." instance=ExtResource("3_85w88")]
 visible = false
@@ -59,10 +64,10 @@ offset_right = -381.0
 offset_bottom = 83.0
 
 [node name="StartCombat" type="Button" parent="."]
-offset_left = 500.0
-offset_top = 142.0
-offset_right = 669.0
-offset_bottom = 235.0
+offset_left = 535.0
+offset_top = 200.0
+offset_right = 704.0
+offset_bottom = 293.0
 theme = SubResource("Theme_1hapx")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0.017732361, 0.01773239, 0.017732479, 1)
