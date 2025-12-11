@@ -686,7 +686,7 @@ page and took minutes for each meeting.
 
 <img src="DocImages/minutes.jpeg" width="400"/>
 
-GitHub Logistics - I created the development process for the team to use when making submission to the team repo. I
+[GitHub Logistics](https://github.com/okpom/project-horse/pulls?q=is%3Apr+is%3Aclosed) - I created the development process for the team to use when making submission to the team repo. I
 enforced pull requests and code reviews to prevent accidental breaking of the codebase while also promoting good
 practices.
 
@@ -763,6 +763,7 @@ any changes regarding color were made directly on the image files themselves, sa
 color adjustments. We were able to do this because we weren't doing anything related to lighting in the game itself.
 
 ### Other Contributions
+
 Game Feel - I worked with Kynan to help time the animations and gameplay events to make the game flow more smoothly. One
 example was how originally the skill coins flipped all at once and landed at the same time. This made it feel kind of
 static, so I suggested that the flips be delayed a bit between all the coins and that character's attack animation
