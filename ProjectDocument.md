@@ -372,18 +372,63 @@ GitHub Username: kwlewis
 # Xiaofeng Lin
 
 GitHub Username: FosoBuaN
+---
+
+I worked on developing efficient behind scene systems with the intent to make our development process more convenient through an structured approach. Most of the earlier works I attributed to were either broken down into individual direct methods within the large game components or are depreciated.
 
 ### Systems and Tools Engineer
+1. Built abstraction libraries ontop of existing base classes for `Skills` and `Entity`.
 
-    asdf
+    - Prototyped `entity_library.gd` and `skills_library.gd`. Skills Library enabled procedural generation of skillsets for entities based on their unique sprite resource path and a fixed seed. This implementation was the first variant of providing characters with skills, and it was designed to ensure that skillset assignment followed consistent character specific behavior. The generated skills are loaded into a specific Entity through the Entity Library. This build was later phased out as our team migrated towards a more Godot node friendly approach, providing each Entity's scene with a small batch of sample skills, allowing the player/boss to augment their skillset on battle start.
+
+      Before:
+      <img src="./DocImages/skill_systems_prehistoric.png" width="400">
+      After:
+      <img src="./DocImages/skill_systems_now.png" width="400">
+
+    - Designed fixed Player and Boss character loading through `data.gd`. Takes advantage of Godot's `Resource` class and inheritance so that Skills, health, character name, and etc can all be crafted then saved as `.tres` directly in the editor without modifying source code. \[DEPRECATED\]
+
+      [Reference](https://github.com/okpom/project-horse/blob/c96b14b9ae8857712025f52784a4be04bab8e48e/scripts/entities/data.gd)
+
+2. Took Nathan Hoad's Dialogue Manager recommended by Justin and built Cutscene management system with following components:
+
+    - Full body character portrait ([scene](https://github.com/okpom/project-horse/blob/49d301cd71a9d5cc48528c761d96a349dd6fc22b/scenes/dialogue/figure_template.tscn)/[script](https://github.com/okpom/project-horse/blob/49d301cd71a9d5cc48528c761d96a349dd6fc22b/scripts/dialogue/dialogue_figure.gd))
+
+      - Made an interesting (at least I thought it was) auto scaler `_calibrate_sprite_size()` such that when new character portraits (sprites) are loaded, it would auto resize its proportions to fit within the parent container.
+
+    - Dialogue Cutscene ([scene](https://github.com/okpom/project-horse/blob/49d301cd71a9d5cc48528c761d96a349dd6fc22b/scenes/dialogue/cutscene_dialogue.tscn)/[script](https://github.com/okpom/project-horse/blob/49d301cd71a9d5cc48528c761d96a349dd6fc22b/scripts/dialogue/dialogue_cutscene.gd))
+    - Cutscene Manager ([script](https://github.com/okpom/project-horse/blob/49d301cd71a9d5cc48528c761d96a349dd6fc22b/scripts/dialogue/cutscene_manager.gd))
+    - Cutscene specific resources ([reference](https://github.com/okpom/project-horse/tree/49d301cd71a9d5cc48528c761d96a349dd6fc22b/scenes/resources))
+
+3. Provided demo usage scenes and structured code annotations within commits to help team better interact with abstract systems without having to dig through absurd logic.
+
+    Annotation Example:
+    <img src="./DocImages/code_annotation.png" width="400">
+
+    Library Tutorial Example:
+    <img src="./DocImages/library_demos.png" width="400">
+
 
 ### Build/Release Management
+1. Managed pull requests and help resolve merge conflicts if present. Majority of pull requests are first approved by Justin.
+    
+    References:
 
-    asdf
+    - [Merge conflict resolution](https://github.com/okpom/project-horse/pull/19)
+    - [Code review](https://github.com/okpom/project-horse/pull/7)
+
+    I use a generic merge conflict resolution technique for scenes, incoming changes are discarded to avoid Godot file corruptions, and conflicts should be resolved within Godot itself before pushing the commit to the team repository.
+  
+2. Periodically pulling latest commits to make sure that there aren't any critical malfunctions that break the Godot editor.
+
+I did not do much for this subrole since our game was in a pending state with mostly scripts for a majority of the quarter. We added a quality of life GitHub action workflow to auto format script files within `/script`.
 
 ### Other Contributions
+1. Built an introduction cutscene that launches when the player presses on `Start Game`, providing engagement and serving as a minor tutorial.
+    <img src="./DocImages/intro_cutscene.png" width="400">
 
-    asdf
+
+
 
 # Danielle Chang
 
