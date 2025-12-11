@@ -753,6 +753,8 @@ clashing below:
 
 Skill Icons - Created the skill icons for both characters since no one had created them yet at the time.
 
+<img src="DocImages/skill-icons.jpeg" width="400"/>
+
 ---
 
 For each team member, you shoudl work of your role and sub-role in terms of the content of the course. Please look at
