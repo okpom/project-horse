@@ -349,7 +349,56 @@ Note: Due to the short timeframe time between the project being playable and the
 ### Key Takeaways: 
 
 - We might need to rework player speed to make the clash arrows more intuitive. One way to fix this is by making the boss faster than the characters.
-- I think is a good sign that the tester was trying to interact with the skill system in order to maximize their damage.
+- I think is a good sign that the tester was trying to interact with the skill system in order to maximize their damage. If players are willing to interact with the skills system in meaningful ways, I think it could be worthwhile to start looking into implementing skills with higher risks versus rewards.
+
+---
+
+---
+
+  ### **VI.** Tester #6 (12/10/25)
+
+  **State of the Game**: 
+  - Skills v3 (skills now scale with resources "Mana" and "Adren")
+  - Intro cutscene updated
+  - Win/loss scene implemented 
+  - Custom assets implemented
+  - Clash system implemented
+  - Clash/attack animations implemented
+  - Sound effects and background music added
+
+---
+  Q1. Did the game drag at any point?
+
+  A1. A little towards the end, but it was still very fun.
+
+---
+  Q2. Could you ﬁnd the information you needed on the interface?
+
+
+  A2. Yes, I was able to read skill data from the interface.
+
+---
+  Q3. Did anything feel clunky, awkward, or confusing?
+
+  A3. Not really, everything seemed to work well together. Something that was a little confusing was understanding when I was able to start cmnbat since I had selected 5 skills but the game wasn't do anything.
+ 
+---
+  Q4. If you could change just one thing, what would it be?
+
+  A4. I think making Red Riding Hood's skills more distinct than Goldilocks' skills, since right now, they seem a bit too similars.
+
+---
+
+### Key Takeaways: 
+
+- We can revise Red Riding Hood's skills to be more interesting and less similar to Goldilucks. However, due to the deadline, we will not be able to update Red Riding Hood's skills.
+- We could have the "Send it" button glow after the player selects enough valid skills. This will help players who figured out how to select skills but aren't quite sure how to proceed from there
+
+
+### Overall Gameplay Testing Takeaways:
+- By conducting gameplay testing at different stages of the project, we were able to identify some problems early. In particular, some players acknowledged that early on, skills felt too strong and too simple as well as the lack of visual feedback for combat. Because of this testing, we were able to identify and fix some these issues by either adding new features or by updating the pre-existing features. 
+
+--- 
 
 ---
 
