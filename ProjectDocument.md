@@ -656,7 +656,8 @@ over a Gantt chart because I thought it would fit better with our team's dynamic
 Also included were milestones implemented at the start of development. Other than being a part of the producer
 deliverables, project planning was discussed as a part of class during lectures regarding the project and tools you can
 use to help with the
-process.
+process. My goal with the Trello was to help the team make sure they knew at all times what needed to be done, who was
+working on what, and when things were due.
 
 One challenge our team had was hitting reaching milestones with most of the additions coming in at the eleventh hour. I
 should've made the decision to have the team pivot to an idea that better fit our team's capabilities/schedules, but
@@ -674,6 +675,10 @@ Assigning Tasks, Holding Meetings - Listed Deliverable. Held regular team meetin
 page and took minutes for each meeting.
 
 <img src="DocImages/minutes.jpeg" width="400"/>
+
+GitHub Logistics - I created the development process for the team to use when making submission to the team repo. I
+enforced pull requests and code reviews to prevent accidental breaking of the codebase while also promoting good
+practices.
 
 Other Producer Stuff - Tried to help be a force multiplier for the team. Helped act as a middleman between team members.
 Coordinated responsibilities and task. Keep everyone on the same page. Helped support any other team members who need
