@@ -181,9 +181,9 @@ I was quite busy this quarter and making all the sprites, animations, background
 
 1. Skill Population:
 
-![Adriano Skill Selection](project-horse/DocImages/AdrianoProjectDocuments/SkillPopulation.png)
+<img src="DocImages/AdrianoProjectDocuments/SkillPopulation.png" alt="Adriano Skill Population" width="400">
 
-  <img src="DocImages/AdrianoProjectDocuments/SkillPopulation.png" alt="Adriano Skill Selection" width="400">
+*(Early version: Px means populated with skill_ID = x)*
 
 I implemented most of the Skill UI system. When the battle begins
 the [PrelimCombatHandler](https://github.com/okpom/project-horse/blob/main/scripts/prelim_combat_handler.gd) spawns
@@ -229,8 +229,7 @@ so the next Skill Selection phase begins with a fresh UI.
 
 #### 3. Boss Targeting:
 
-![Adriano Boss Arrow Preview](project-horse/DocImages/AdrianoProjectDocuments/BossPreviewArrows.gif)
-BossPreviewArrows.gif
+<img src="DocImages/AdrianoProjectDocuments/BossPreviewArrows.gif" alt="Adriano Boss Arrow Preview" width="500">
 
   *(Arrows indicates which skill enemy plans on attacking during clash)*
 
@@ -256,7 +255,7 @@ visible including multiple overlapping arrows targeting different players. When 
 
 #### 4. Skill Description Boxes:
 
-  <img src="DocImages/AdrianoProjectDocuments/SkillDescriptionBoxesNew.gif" alt="Adriano skill description boxes" width="400">
+  <img src="DocImages/AdrianoProjectDocuments/SkillDescriptionBoxesNew.gif" alt="Adriano skill description boxes" width="600">
 
   *(Icons Not Finalized)*
 
@@ -275,7 +274,7 @@ description box always reflects accurate, per-skill data.
 
 #### 5. Player/Boss Healthbars:
 
-  <img src="DocImages/AdrianoProjectDocuments/HealthBar.gif" alt="Adriano healthbar" width="400">
+  <img src="DocImages/AdrianoProjectDocuments/HealthBar.gif" alt="Adriano healthbar" width="500">
 
 I wrote
 the [original full HealthBar system](https://github.com/okpom/project-horse/commit/7a5a60d3f4400064cd71287639e9f448e37c6b69#diff-23803dbd84edd299c0f8be7fb2e0807c382ec194944d6eba587189fc7bf92abaR2)
@@ -288,7 +287,7 @@ full original feature, and my group streamlined it into a clean, entity-driven U
 
 ### Audio
 
-1. Gameplay Music:
+#### 1. Gameplay Music:
 
 I implemented a scene driven music system from
 the [title screen](https://github.com/okpom/project-horse/blob/main/scripts/title_screen.gd), into
@@ -300,8 +299,7 @@ On the [Title Screen](https://github.com/okpom/project-horse/blob/main/scripts/t
 AudioStreamPlayer2D and bound it to a new exported variable menu_music in title_screen.gd. This allows the menu to start
 playing the assigned track immediately on load using Godot’s autoplay behavior.
 
-For Cutscenes I expanded
-the [CutsceneManager](https://github.com/okpom/project-horse/blob/main/scripts/dialogue/cutscene_manager.gd) by
+For Cutscenes I expanded the [CutsceneManager](https://github.com/okpom/project-horse/blob/main/scripts/dialogue/cutscene_manager.gd) by
 introducing a cutscene_music export and a corresponding MusicPlayer node. When a cutscene begins in play_cutscene(), the
 manager loads the appropriate track, assigns it to the player, and starts playback. When the cutscene ends, _
 end_cutscene() stops the audio and the system returns control to the boss fight scene.
