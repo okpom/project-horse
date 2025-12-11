@@ -132,7 +132,7 @@ Overview: Other things I contributed to that are worth mentioning.
 My Contributions:
 - Creating the base `entity.gd`, `player.gd`, and `boss.gd` classes. These classes had exportable parameters such as max health and speed.
 - Creating a basic scene swapper script attached to the World node ([found here](https://github.com/okpom/project-horse/blob/4d74331a5d6ea021cd82d9345edbd1e25285a133/scripts/main.gd#L1C1-L21C27)). Allows for efficient scene swapping when swapping to a new scene.
-- Creating a win/loss checker and the actual win/loss scenes.
+- Creating a win/loss checker and the actual win/loss
 ---
 
 ### Sub-Role: Gameplay Testing
@@ -146,37 +146,6 @@ Note: Due to the short timeframe time between the project being playable and the
   Q1: Was there anything you found frustrating?
   
   A1: The gameplay itself seems a bit more intuitive after playing around with it. I find it frustrating that there's no fight information that gets displayed after someone gets hit apart from just looking at a person's health. If I'm not paying full attention to the game, I feel like I might not see that the boss did a lot of damage to me.
-
----
-  Q2: Did the game feel too long, too short, or just about right?
-
-  A2: The game felt too short. There isn't much to do as a player apart from just clicking on the skills that do the most damage.
-
----
-  Q3: Were there particular aspects that you found satisfying?
-
-  A3: It's nice seeing the selected skills show up on top of the player.
-
----
-  Q4: If you could change just one thing, what would it be?
-
-  A4: I would either change the skills to be more dynamic or add skills that do no damage but provide buffs.
-
----
-  Q5: What was missing from the game?
-
-  A5: All the background assets and character models.
-
----
-
-### **II.** Tester #2 (12/7/25)
-  State of the Game: Very basic skills (flat damage values, no buffs), no intro cutscene, no assets, no clash system (there was only direct attacks).
-
----
-  
-  Q1: How did the controls feel? Did they make sense?
-  
-  A1: Clicking the skills was intuitive.
 
 ---
   Q2: Did the game feel too long, too short, or just about right?
