@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://elyfm2o0slma"]
+
+[ext_resource type="Script" uid="uid://dxr5wynvcs2hs" path="res://scripts/title_screen.gd" id="1_yxbqr"]
+[ext_resource type="AudioStream" uid="uid://le6pqdt2bkxj" path="res://assets/Sounds/Music/xDeviruchi - 8-bit Fantasy  & Adventure Music (2021)/xDeviruchi - Title Theme .wav" id="2_tylv2"]
+[ext_resource type="Texture2D" uid="uid://bxhn2jwjlisde" path="res://assets/UI_Visuals/custom_drawing/cover_page.png" id="3_5vxan"]
+[ext_resource type="Script" uid="uid://b52ptuas6upr" path="res://scripts/title/start_button.gd" id="4_4826q"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fgkus"]
+font_size = 48
+
+[node name="TitleScreen" type="Node2D"]
+script = ExtResource("1_yxbqr")
+menu_music = ExtResource("2_tylv2")
+
+[node name="BgImg" type="Sprite2D" parent="."]
+scale = Vector2(0.71, 0.749)
+texture = ExtResource("3_5vxan")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -346.0
+offset_top = -140.0
+offset_right = 347.0
+offset_bottom = -73.0
+text = "You win!"
+label_settings = SubResource("LabelSettings_fgkus")
+horizontal_alignment = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="StartButton" type="Button" parent="."]
+offset_left = -68.0
+offset_top = 10.0
+offset_right = 65.0
+offset_bottom = 82.0
+text = "Play Again?
+"
+script = ExtResource("4_4826q")
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
+autoplay = true
+
+[connection signal="pressed" from="StartButton" to="StartButton" method="_on_pressed"]
