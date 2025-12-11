@@ -233,6 +233,8 @@ A5: All the background assets and character models.
 
 ## Kynan Lewis
 
+GitHub Username: kwlewis
+
 ### Level/World Designer
 
 1. Implemented the clash system (as directed by Justin), which dictates the flow of combat and determines how damage is
@@ -369,6 +371,8 @@ A5: All the background assets and character models.
 
 # Xiaofeng Lin
 
+GitHub Username: FosoBuaN
+
 ### Systems and Tools Engineer
 
     asdf
@@ -382,6 +386,8 @@ A5: All the background assets and character models.
     asdf
 
 # Danielle Chang
+
+## GitHub Username: 23dchang
 
 *Note*: I found that a lot of the narrative aspect and the animation/visuals aspect for me and this game in particular
 overlapped a lot. Also as I was trying to reference the lectures, a lot of them gave me an error where it said the link
@@ -490,6 +496,8 @@ I was quite busy this quarter and making all the sprites, animations, background
 time, so I wasn't able to provide any help to my teammates outside of moral support.
 
 # Adriano Melo Filho
+
+## Github Username: amelofilho
 
 ### UI/Input
 
@@ -646,6 +654,8 @@ Some of the songs I chose:
 Rough quarter... Didn't even have time to get all my deliverables complete :(
 
 # Justin Pak
+
+## GitHub Username: okpom
 
 ### Producer
 
