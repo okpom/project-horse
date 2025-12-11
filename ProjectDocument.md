@@ -132,7 +132,7 @@ Overview: Other things I contributed to that are worth mentioning.
 My Contributions:
 - Creating the base `entity.gd`, `player.gd`, and `boss.gd` classes. These classes had exportable parameters such as max health and speed.
 - Creating a basic scene swapper script attached to the World node ([found here](https://github.com/okpom/project-horse/blob/4d74331a5d6ea021cd82d9345edbd1e25285a133/scripts/main.gd#L1C1-L21C27)). Allows for efficient scene swapping when swapping to a new scene.
-- Creating a win/loss checker and the actual win/loss
+- Creating a win/loss checker and the actual win/loss scene.
 ---
 
 ### Sub-Role: Gameplay Testing
