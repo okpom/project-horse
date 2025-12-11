@@ -174,50 +174,85 @@ Note: Due to the short timeframe time between the project being playable and the
 
 ### Level/World Designer
 1. Implemented the clash system (as directed by Justin), which dictates the flow of combat and determines how damage is calculated and dealt. This is more of a game system than level design, so I will go into further detail in the other contributions section.
+
 2. Created a system where characters would have varying speed, using the already existing skill_queue. Previously, every character as set to have the same speed, so the turn order always ended up just going left to right. After modifying the speeds, I made it so the boss would generally be faster, so they could target the palyers at random and create a varying turn order due to the clash system. I also implemented a randomizer so that speeds would be different each round within a defined range. The general ranges makes it so that Player 1 is slowest, Player 2 is in the middle, and the boss is the fastest, but with the randomizer they can occassionally overtake each other in order to change things up.
-<img width="1255" height="183" alt="Screenshot 2025-12-10 222534" src="https://github.com/user-attachments/assets/bc2c2a0e-495e-47c0-b060-a1221fcf27d4" /> <img width="758" height="235" alt="Screenshot 2025-12-10 222600" src="https://github.com/user-attachments/assets/e09e8119-55d8-4d1c-aed2-f923003f325b" />
+
+<img width="1255" height="183" alt="Screenshot 2025-12-10 222534" src="https://github.com/user-attachments/assets/bc2c2a0e-495e-47c0-b060-a1221fcf27d4" /> 
+<img width="758" height="235" alt="Screenshot 2025-12-10 222600" src="https://github.com/user-attachments/assets/e09e8119-55d8-4d1c-aed2-f923003f325b" />
+
 3. Ensured that all neccessary information would be available to the player through UI tweaks, including coin rolls, speed values, status values, and damage calculations. Since the combat mostly occurs without player input, the UI updates allow the player to follow along with the action even as it happens without their inclusion. Since this is mostly in the UI category, I will go into more detail in Other Contributions.
+
 <img width="498" height="816" alt="Screenshot 2025-12-10 222218" src="https://github.com/user-attachments/assets/c12e1a2a-4a8d-42d4-953c-aa4444962a7f" />
+
 4. Scaled and modified the numbers for Player skills, and also designed the boss' skills. I also modified the health values according the characters' capabilities in order to create a reasonably challenging and engaging experience. With our fairly limited system of combat, there isn't much room for strategy. Therefore I focused on the numbers and coins to keep the combat engaging, so that it would still be fun to waitch the coin rolls during clashes and hope that you can win them.  
 
 ### Game Feel
 
 1. Made sure that the coins were fun to watch when they were being flipped. At Justin's suggestion I created a short time delay of 0.2 seconds between coin flips, which made them more satisfying. Also made the sprite animations for the coins, and I think I did a good job because the heads is a little cat face and it's cute. I also added a sound effect that plays when coins are tossed, when they land on heads, and when they are destroyed. These elements work in tandem so that the players will feel good to see the coin turn heads.
-<img width="790" height="552" alt="Screenshot 2025-12-10 222730" src="https://github.com/user-attachments/assets/3396513e-1394-498f-af48-55b10b9a9604" /> <img width="1048" height="570" alt="Screenshot 2025-12-10 222840" src="https://github.com/user-attachments/assets/8b56b216-11c8-4190-9876-921085c2fa2d" />
+
+<img width="790" height="552" alt="Screenshot 2025-12-10 222730" src="https://github.com/user-attachments/assets/3396513e-1394-498f-af48-55b10b9a9604" /> 
+<img width="1048" height="570" alt="Screenshot 2025-12-10 222840" src="https://github.com/user-attachments/assets/8b56b216-11c8-4190-9876-921085c2fa2d" />
+
 2. Added a scrolling banner which announces when clashes happen, which quickly pops in from the left to the right accompanied by a sound effect. This makes the the clash system more significant to react with, as opposed to when it just happens. I also made it so the banner scrolls for a direct attack so that it's easy to follow when a clash is/isn't happening.
+
 <img width="500" height="229" alt="Screenshot 2025-12-10 222940" src="https://github.com/user-attachments/assets/dc4a6826-e2d7-4f4b-9d85-cf8d5f8e3003" />
+
 3. The damage calculated from the coin flip appears on the screen right before the player and boss clash, creating an effect where the player will be in anticipation to see how their damage compares to the opponent and whether they will win or not.
+
 4. Implemented all sound effects to the combat, especially those for coin flips and clash banner, which make those moments more satisfying. Sound effects are also applied to the characters for attacks, guarding and damage, making them feel more significant and weighty. The sound effects for the character actions were mostly implemented through the animation player to make them more consistent, while those that tied to game systems were done in the battle manager. Sound effects were all sourced from school projects, myself, or pixabay.com.
+
 5. Implemented all animation and combat timings, allowing the battles to flow at a quick but easy to follow pace. Specifically, coin flips are easy to parse (which take about 2.5 seconds), then the result and its consequences are displayed for a couple seconds before moving on and keeping things moving. The actual attacks which deal damage, especially the combo attacks (seen in Red Riding Hood's animations), occur as the coins are landing to make them feel more snappy and satisfying.
-<img width="793" height="149" alt="Screenshot 2025-12-10 223134" src="https://github.com/user-attachments/assets/4ae6a00b-290b-48cc-bf0c-a630f06cd498" /> <img width="755" height="111" alt="Screenshot 2025-12-10 223219" src="https://github.com/user-attachments/assets/a1ab5d38-fc75-4fa7-9579-c65c57f99da3" />
+
+<img width="793" height="149" alt="Screenshot 2025-12-10 223134" src="https://github.com/user-attachments/assets/4ae6a00b-290b-48cc-bf0c-a630f06cd498" /> 
+<img width="755" height="111" alt="Screenshot 2025-12-10 223219" src="https://github.com/user-attachments/assets/a1ab5d38-fc75-4fa7-9579-c65c57f99da3" />
 
 ### Other Contributions
 
 1. Compiled Danielle's sprites into singular spritesheets for each character and implemented them into the game. This included recreateing them into the animation player, programming the logic for animation transitions, and fine-tuning the timing between animation and gameplay events (explained in Game Feel section).
+
 <img width="6300" height="3600" alt="red-Sheet" src="https://github.com/user-attachments/assets/492b04f8-2e26-426b-a78d-65972d87bc88" />
 <img width="949" height="854" alt="Screenshot 2025-12-10 223438" src="https://github.com/user-attachments/assets/f9c201a6-5e70-46a0-8f1d-84cf4194df2a" />
+
 2. Created spritework for the coins and implemented them into the game. This was done by creating a coin scene with animations to land on heads or tails, as well as the possiblity of breaking. The battle manager would instantiate the correct number, place them with equal spacing above the subject's head, and giving it instructions based on the signals received from clash system. One of these intructions include determining whether the first coin should break at the end of the round which the subject lost, which also has its own spritework.
+
 <img width="1280" height="80" alt="coin-Sheet" src="https://github.com/user-attachments/assets/53c7b465-321f-4b0d-8954-a07a4f8b61cd" />
+
 3.  Created UI for skill display and damage numbers. The UI appears next to the character's skill bar, shows the name of the currently used skill, and makes the calculated damage appear when the coins land. This is repeated for every round of the clash. The damage calculation is designed to only appear after the coins have actually landed, just before damage is dealt.
+
 <img width="987" height="526" alt="Screenshot 2025-12-10 223633" src="https://github.com/user-attachments/assets/e9eb656e-450d-4d82-973e-fad0f9291468" />
+
 4.  Implemented the existing health bar so that it would reflect the player's health and update when they take damage.
+
 5.  Created UI for the clash system that scrolls text when Clash is initiated, won, lost, and when no clash occurs so the character attacks directly. This was mostly done for game feel to make clashes more satisfying, but it is still important information to convey to the player.
+
 6. Created a basic display to display the character's current status, namely mana and adrenaline amount. These systems were implemented by Aleks, so all I did was display them through a simple label that is updated by a signal.
+
 <img width="849" height="107" alt="Screenshot 2025-12-10 223720" src="https://github.com/user-attachments/assets/d3082f3c-797a-40b5-b907-475c5af87d9c" />
+
 7. Implemented a part of the UI to display each character's current speed, due to the varying speed system explained earlier.
+
 <img width="1466" height="94" alt="Screenshot 2025-12-10 223756" src="https://github.com/user-attachments/assets/f27c3680-f755-46fd-823d-d80e134fcace" />
+
 8. Implemented the full clash system, including:
+
 -   Damage calucation based on coin flips
 -   The loser of each round losing a coin, which they will not be able to use for future rounds
 -   When a participant runs out of coins, the lose the round, and the winner is able to attack them with their remaining coins to deal damage.
 -   If a clash does not occur (which happens after the boss has used all of its skills), the character can attack directly without clashing to deal coins.
 -   Implemented all animations and timing associated with combat and clashing.
 -   Many signals are returned to the battle system in order to convey all the important information, which I used a lot for the prior UI handling.
+
 <img width="1369" height="386" alt="Screenshot 2025-12-10 223849" src="https://github.com/user-attachments/assets/468e8a6f-8ee1-4419-b5e8-45e9d20b2ccc" />
+
 9. Created an initial turn-based combat system, which was built upon to create battle manager. My implementation was very bare bones, and just automatically went in turns between a party of 2 characters and a boss, as they dealt a fixed amount of damaged to each other until one of them died.
+
 10. Helped with early character designs and sketches.
-<img width="449" height="785" alt="Screenshot 2025-11-08 202130" src="https://github.com/user-attachments/assets/b9e6f3b9-389c-4e77-81eb-59aae72d3344" /> <img width="358" height="780" alt="Screenshot 2025-11-08 201458" src="https://github.com/user-attachments/assets/8132620a-198a-48cb-b81f-6f16e3a7876d" />
+
+<img width="449" height="785" alt="Screenshot 2025-11-08 202130" src="https://github.com/user-attachments/assets/b9e6f3b9-389c-4e77-81eb-59aae72d3344" /> 
+<img width="358" height="780" alt="Screenshot 2025-11-08 201458" src="https://github.com/user-attachments/assets/8132620a-198a-48cb-b81f-6f16e3a7876d" />
+
 11. Scaled all backgrounds and UI and sprites in the combat scene to fit comfortably on the screen.
+
 <img width="1913" height="1034" alt="Screenshot 2025-12-10 224014" src="https://github.com/user-attachments/assets/eb9e7a1c-e52b-424f-b9b7-202926974e39" />
 
 
