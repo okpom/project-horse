@@ -1,6 +1,25 @@
-
 ~ start
-Red Riding Hood: Magnificent test message!
-Goldilocks: Yap yap yap.
-Red Riding Hood: Yap x3.
-=> END
+
+Red Riding Hood: Finally, a normal day. No forests, no wolves, just trains and terrible coffee.
+Goldilocks: This is my eighth cup and it’s finally perfect.
+Red Riding Hood: You’re shaking like a malfunctioning escalator.
+
+Red Riding Hood: Next stop: amusement park. Rides, snacks, zero fairy-tale drama— [wait=1] Huh?
+
+Goldilocks: Do you smell wet bear?
+Red Riding Hood: That’s just the homeless guy again.
+
+
+Weird Animal: ar...
+Red Riding Hood: … [wait=1.5] That was definitely not the homeless guy.
+
+Bear: AR... AR...
+Goldilocks: Massive bear, three o’clock!
+Red Riding Hood: How does a bear even fit on the subway?!
+
+Bear: [wave amp=50 freq=3][color=#ff0000]AR AR AR AR AR![/color][/wave]
+
+Red Riding Hood: [shake rate=30 level=20]Screw the rollercoasters. We’re fighting a bear first![/shake]
+Goldilocks: Let’s make him just right… for a knockout!
+
+~ END
