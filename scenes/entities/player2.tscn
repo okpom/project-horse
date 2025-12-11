@@ -7,9 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://bvedsk338f7yw" path="res://scenes/UI/SkillsColumn.tscn" id="5_0kreu"]
 [ext_resource type="Script" uid="uid://c73rfbsmvew6j" path="res://scripts/skills/skill.gd" id="6_c8oo2"]
 [ext_resource type="Script" uid="uid://dkqi6rkvgvfov" path="res://scripts/skills/skill_container.gd" id="6_uslr3"]
-[ext_resource type="Texture2D" uid="uid://dsnlxit2ht1x7" path="res://assets/UI_Visuals/Skills_Icons/light_attack.png" id="7_uslr3"]
-[ext_resource type="Texture2D" uid="uid://ccapfxxjtvyfw" path="res://assets/UI_Visuals/Skills_Icons/melee_buff.png" id="8_ev13c"]
-[ext_resource type="Texture2D" uid="uid://xaau4uqcyrlx" path="res://assets/UI_Visuals/Skills_Icons/heavy_melee.png" id="9_n4wb3"]
+[ext_resource type="Texture2D" uid="uid://xweyrm50om5s" path="res://assets/UI_Visuals/Skills_Icons/red_s1.png" id="8_uslr3"]
+[ext_resource type="Texture2D" uid="uid://sudbrygj14q4" path="res://assets/UI_Visuals/Skills_Icons/red_s2.png" id="9_ev13c"]
+[ext_resource type="Texture2D" uid="uid://ddcgtid8fwkpr" path="res://assets/UI_Visuals/Skills_Icons/red_s3.png" id="10_n4wb3"]
 
 [sub_resource type="Animation" id="Animation_ev13c"]
 resource_name = "RESET"
@@ -164,7 +164,7 @@ description = "[On Head]: Gain 2 Adrenaline"
 base_roll = 3.0
 bonus_roll = 4.0
 coins = 2
-icon_texture = ExtResource("7_uslr3")
+icon_texture = ExtResource("8_uslr3")
 copies_in_deck = 6
 status_type = "Adren"
 player = NodePath("../..")
@@ -178,7 +178,7 @@ base_roll = 3.0
 bonus_roll = 5.0
 coins = 3
 odds = 0.6
-icon_texture = ExtResource("8_ev13c")
+icon_texture = ExtResource("9_ev13c")
 copies_in_deck = 4
 status_type = "Adren"
 player = NodePath("../..")
@@ -192,7 +192,7 @@ base_roll = 4.0
 bonus_roll = 5.0
 coins = 5
 odds = 0.6
-icon_texture = ExtResource("9_n4wb3")
+icon_texture = ExtResource("10_n4wb3")
 copies_in_deck = 2
 status_type = "Adren"
 player = NodePath("../..")
