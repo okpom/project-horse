@@ -112,18 +112,48 @@ Team Member 2
     asdf
 
 # Danielle Chang
-
+*Note*: I found that a lot of the narrative aspect and the animation/visuals aspect for me and this game in particular overlapped a lot. Also as I was trying to reference the lectures, a lot of them gave me an error where it said the link had been disabled and "Sorry, access through this link has been removed by admin policy. Please contact the person who shared it with you."
 ### Animation/Visuals
+1. Moodboards
+Once our team settled on the broader game concept, the first thing I focused on was establishing a clear visual direction. To do this, I created a series of moodboards that captured the atmosphere, tone, and stylistic possibilities we had loosely discussed. I wanted all of us to share a concrete vision of what the world might look and feel like before moving into production. After experimenting with different aesthetics, my team and I ultimately combined one of my fairy-tale-inspired concepts with Justin’s more modern, urban direction. The result was what he described as an “urban fairytale” aesthetic—storybook characters and motifs integrated into a slightly run-down, contemporary setting, loosely inspired by 1980s–90s Hong Kong. This helped us shift the character designs away from traditional cloaks and tunics and toward everyday clothing like suits and ties, grounding them in a more modern reality while still retaining their fantastical origins.
+These are some of the moodboards I came up with and the last one is one of the final ones we went with.
+https://github.com/okpom/project-horse/blob/7609124f5c1385eb6bc26ec5babdcfc8b470a52e/DocImages/moodboard_1.jpg
+https://github.com/okpom/project-horse/blob/7609124f5c1385eb6bc26ec5babdcfc8b470a52e/DocImages/moodboard_2.jpg
+https://github.com/okpom/project-horse/blob/7609124f5c1385eb6bc26ec5babdcfc8b470a52e/DocImages/moodboard_3.jpg
+https://github.com/okpom/project-horse/blob/7609124f5c1385eb6bc26ec5babdcfc8b470a52e/DocImages/moodboard_4.jpg
 
-    asdf
+3. Sprite Creation, Animation  and Art Style
+With the aesthetic direction established, I began creating the first iterations of the character sprites. My goal was to explore what our chosen visual style might look like in practice, so I produced several sketches and poses for Red—a modern reinterpretation of Red Riding Hood, whose iconic hood I translated into a bright red scarf.
+https://github.com/okpom/project-horse/blob/5ff30ad465be0e6c9307d44809339e871b0fe58d/DocImages/art-4.jpeg
+https://github.com/okpom/project-horse/blob/5ff30ad465be0e6c9307d44809339e871b0fe58d/DocImages/art-5.jpeg
+https://github.com/okpom/project-horse/blob/5ff30ad465be0e6c9307d44809339e871b0fe58d/DocImages/art-6.jpeg
+https://github.com/okpom/project-horse/blob/5ff30ad465be0e6c9307d44809339e871b0fe58d/DocImages/art-7.jpeg
+I also made the animations in animation player in godot with the sprite sheets that I had made.
+
+Using these sprite sheets, I created animations in Godot’s AnimationPlayer. Drawing from the GameFeel lecture, I aimed for at least ten frames per second to ensure smooth motion and preserve the illusion of life. While not every animation reached this target, I prioritized the idle animation since it is the one players see most often. I also incorporated the principle—emphasized in lecture—that NPCs should always feel alive, even when the player is not directly interacting with them. This guided my decision to give both the boss characters and mobs detailed idle cycles as well as hurt animations that provided clear feedback whenever an attack successfully landed.
+
+I designed two main player characters inspired by instantly recognizable fairy-tale figures: Red (Red Riding Hood) and Yellow (Goldilocks). Both were reimagined with modern silhouettes and suits to fit the “urban fairytale” tone. For each character, I created a full set of animations: idle, run/move, several attacks, a guard stance, and a hurt animation. Their corresponding fairy-tale creatures—the wolf and the bear—were also designed and animated as bosses/mobs, building a visual connection between the characters and their origins.
+
+3. Color Palletes
+Even after settling on the overall style and poses, I felt the visuals still didn’t fully communicate the blend of melancholy, grunge, and fairy-tale whimsy we were aiming for. After discussions with the team, I proposed shifting the entire world into black and white, reserving small bursts of color only for the most iconic character elements. This allowed the fairy-tale symbols—like Red’s scarf or Yellow’s gold hair—to stand out strongly against a muted and worn backdrop. This limited palette ultimately unified the characters, enemies, and environments while reinforcing the tone of a fractured fairytale world intruding into modern life.
+
+4. Start Screen and Backgrounds
+Originally, I imagined a character-select system where the player flipped through a storybook, choosing heroes like pages in a fairy tale. Although we didn’t end up implementing this feature, I still wanted to honor that narrative concept. I incorporated it into the start screen instead, designing an open book filled with taped post it sketches of the characters and polaroid photos of the combat settings. This visual metaphor subtly reinforces that the characters may have stepped out of a storybook into the real world or that someone has been documenting their presence.
+https://github.com/okpom/project-horse/blob/5ff30ad465be0e6c9307d44809339e871b0fe58d/DocImages/Untitled_Artwork.jpg
+
+For the in-game environments, I created several modern urban backgrounds, most notably subway scenes, to blend the familiarity of real-world settings with the strangeness of fairy-tale creatures invading them. To enhance the surreal and grungy tone, I desaturated these backgrounds entirely, integrating them into the monochromatic palette that ultimately unified the visual identity of the game.
 
 ### Narrative Design
+This game doesn't have much narrative focus on the gameplay, but I still wanted to communicate the game theme and that modern fairy tale vibe so I did this through the character designs, settings/backgrounds, mobs, color pallette and game start screen.
 
-    asdf
+Although our game wasn’t heavily narrative-driven in terms of dialogue or plot progression, I still wanted the player to feel a story through every visual and gameplay cue. Since the gameplay itself is quite fast-paced and combat-oriented, I focused on embedding narrative meaning into the elements the player constantly interacts with—character silhouettes, animations, environment tone, and the color language of the world. Much of this came from the “environmental storytelling” concepts discussed in lecture: the idea that players should be able to infer what kind of world they are entering simply by looking at how the characters move, what they wear, and where they are placed. To support this, I designed Red and Yellow not just as redesigned fairy-tale figures, but as characters who visually communicate that their fairy-tale identities have been disrupted and dropped into an urban world that doesn’t quite fit them. Their subtle flashes of color reminded players of their origin stories, while everything else around them hinted that something has gone wrong in the world those stories came from.
+
+I also thought a lot about narrative consistency when creating the backgrounds and start screen.Because first impressions is key when selling a game to a player, I wanted the very first screen to immediately tell the player that this world blends storybook fantasy with contemporary grit. The open book concept—with its taped-down polaroids and post-it sketches—became my way of narratively bridging the gap between the fairy-tale world and our modern setting. It communicates that these characters might have escaped from a storybook, or that someone has been studying them and documenting their appearance as they appear in the real world. Even though this isn’t explicitly stated anywhere, the imagery plants the idea that the game world has a deeper lore and that the battles the player participates in are part of something larger.
+
+Finally, I used the enemies and animations to reinforce micro-stories within gameplay itself. The wolf and bear bosses were chosen intentionally—not only because of their ties to Red and Yellow, but because having the monsters appear corrupted or exaggerated compared to their human counterparts suggests a narrative imbalance or conflict between the fairy-tale origins and the urban environment. Similarly, adding hurt animations, readable idle poses, and short visual “tells” for attacks wasn’t only for GameFeel; it also helped communicate emotion and personality. The way the wolf recoils, or the confident posture Yellow takes when guarding, gives players a glimpse into who these characters are without needing lines of dialogue. In that sense, the narrative comes through in how characters inhabit their bodies and react to the world around them, allowing the storytelling to emerge organically through gameplay actions rather than explicit exposition.
 
 ### Other Contributions
-
-    asdf
+I was quite busy this quarter and making all the sprites, animations, backgrounds, and other art assests took so much time, so I wasn't able to provide any help to my teammates outside of moral support.
 
 # Adriano Melo Filho
 
