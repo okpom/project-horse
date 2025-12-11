@@ -173,13 +173,11 @@ GDScript Format Workflow - Made a GitHub workflow for automatically formatting a
 code in their own preferred style while ensuring that all final code aligns to one consistent style. This workflow is based on the 
 portion of the course that covered Godot code style and best practices.
 
-Assigning Tasks, Holding Meetings - Held regular team meeting to make sure everyone was on the same page and took minutes for each meeting.
+Assigning Tasks, Holding Meetings - Listed Deliverable. Held regular team meeting to make sure everyone was on the same page and took minutes for each meeting.
 
 <img src="DocImages/minutes.jpeg" width="400"/>
 
-Producer Stuff - Tried to help be a force multiplier for the team. Helped act as a middleman between team members. Coordinated responsibilities and 
-task. Keep everyone on the same page. Helped support any other team members who need assistance. Managed deadlines and scope. Made choices when things 
-had to be delayed or scoped down. GitHub workflow.
+Other Producer Stuff - Tried to help be a force multiplier for the team. Helped act as a middleman between team members. Coordinated responsibilities and task. Keep everyone on the same page. Helped support any other team members who need assistance. Managed deadlines and scope. Made choices when things had to be delayed or scoped down. Worked to fix merge conflicts, bugs, and assisted with any members that needed support with programming for their roles.
 
 ### Visual Cohesion/Style Guide
 Moodboard/Style Guide - I worked with Danielle to nail down what the core aesthetic of the game should be. She created the first set of moodboards and I created the second set to lock in on what the game's visuals would be like. Originally, the game was leaning more towards gothic or fantasy elements. 
@@ -222,10 +220,7 @@ Skill Icons - Created the skill icons for both characters since no one had creat
 
 Audio Asset Acquisition - Looked for audio assets since none had been found at the time.
 
-
-
-
-
+---
     
 For each team member, you shoudl work of your role and sub-role in terms of the content of the course. Please look at the role sections below for specific instructions for each role.
 
