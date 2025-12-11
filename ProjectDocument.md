@@ -133,7 +133,7 @@ Team Member 2
 
 ![Adriano Skill Selection](project-horse/DocImages/AdrianoProjectDocuments/SkillPopulation.png)
 
-*(Early version: Px means populated with skill_ID = x)*
+  <img src="DocImages/AdrianoProjectDocuments/SkillPopulation.png" alt="Adriano Skill Selection" width="400">
 
 I implemented most of the Skill UI system. When the battle begins
 the [PrelimCombatHandler](https://github.com/okpom/project-horse/blob/main/scripts/prelim_combat_handler.gd) spawns
@@ -154,9 +154,9 @@ placeholder UI with actual TextureRect icons and metadata.
 
 2. Skill Selection:
 
-![Adriano Skill Selection](project-horse/DocImages/AdrianoProjectDocuments/SkillSelection.gif)
+  <img src="DocImages/AdrianoProjectDocuments/SkillSelection.gif" alt="Adriano Skill Selection" width="400">
 
-*(Early version: Populates over head skills by clicking one per bottom column)*
+  *(Early version: Populates over head skills by clicking one per bottom column)*
 
 During the Skill Selection phase
 the [BattleManager](https://github.com/okpom/project-horse/blob/main/scripts/battle_manager.gd) manages all UI
@@ -177,12 +177,12 @@ replace_used_skills_in_grid() updates only the specific grid nodes involved in t
 metadata (node.get_meta("used_in_slot")). Finally, clear_selections_and_ui() resets the Skill Bars and clears metadata
 so the next Skill Selection phase begins with a fresh UI.
 
-3. Boss Targeting:
+#### 3. Boss Targeting:
 
 ![Adriano Boss Arrow Preview](project-horse/DocImages/AdrianoProjectDocuments/BossPreviewArrows.gif)
 BossPreviewArrows.gif
 
-*(Arrows indicates which skill enemy plans on attacking during clash)*
+  *(Arrows indicates which skill enemy plans on attacking during clash)*
 
 Although it's not going to make the final cut, it's something I spent a fair amount of time on. I implemented the visual
 targeting preview feature that displays curved red arrows from each boss skill slot to the player slot it plans on
@@ -204,11 +204,11 @@ To control visibility I connected the boss’s HoverArea directly to _on_boss_ho
 using connect_boss_hover_signals(). When the cursor enters the boss model every arrow inside boss_preview_arrows becomes
 visible including multiple overlapping arrows targeting different players. When the cursor leaves, they all hide again.
 
-4. Skill Description Boxes:
+#### 4. Skill Description Boxes:
 
-![Adriano skill description boxes](project-horse/DocImages/AdrianoProjectDocuments/SkillDescriptionBoxesNew.gif)
+  <img src="DocImages/AdrianoProjectDocuments/SkillDescriptionBoxesNew.gif" alt="Adriano skill description boxes" width="400">
 
-*(Icons Not Finalized)*
+  *(Icons Not Finalized)*
 
 I implemented the foundation for
 the [Skill Description Box system](https://github.com/okpom/project-horse/blob/main/scripts/UI/skill_description_box.gd)
@@ -223,9 +223,9 @@ SkillDescriptionBox instance under the player’s SkillsColumn, accesses all UI 
 SkillDescription, Stats, etc.), and writes the appropriate values taken from the Skill object. This ensures that the
 description box always reflects accurate, per-skill data.
 
-5. Player/Boss Healthbars:
+#### 5. Player/Boss Healthbars:
 
-![Adriano healthbar](project-horse/DocImages/AdrianoProjectDocuments/HealthBar.gif)
+  <img src="DocImages/AdrianoProjectDocuments/HealthBar.gif" alt="Adriano healthbar" width="400">
 
 I wrote
 the [original full HealthBar system](https://github.com/okpom/project-horse/commit/7a5a60d3f4400064cd71287639e9f448e37c6b69#diff-23803dbd84edd299c0f8be7fb2e0807c382ec194944d6eba587189fc7bf92abaR2)
@@ -256,7 +256,7 @@ introducing a cutscene_music export and a corresponding MusicPlayer node. When a
 manager loads the appropriate track, assigns it to the player, and starts playback. When the cutscene ends, _
 end_cutscene() stops the audio and the system returns control to the boss fight scene.
 
-State Changing Music:
+#### State Changing Music:
 
 The Boss Fight required the most work. I added four dedicated audio players to the BossFightManager scene:
 SkillMusicPlayer, CombatMusicPlayer, VictoryMusicPlayer and DefeatMusicPlayer. These players are connected to new
@@ -272,11 +272,11 @@ state driven and eliminates earlier ad-hoc checks like if combat_music_player.pl
 
 Some of the songs I chose:
 
-[RPG Game Music by alkakrab](https://alkakrab.itch.io/50-tracks-rpg-game-music-pack).
+  [RPG Game Music by alkakrab](https://alkakrab.itch.io/50-tracks-rpg-game-music-pack).
 
-[8Bit Fantasy Adventure by xDeviruchi](https://xdeviruchi.itch.io/8-bit-fantasy-adventure-music-pack).
+  [8Bit Fantasy Adventure by xDeviruchi](https://xdeviruchi.itch.io/8-bit-fantasy-adventure-music-pack).
 
-[16Bit Fantasy Adventure by xDeviruchi](https://xdeviruchi.itch.io/16-bit-fantasy-adventure-music-pack).
+  [16Bit Fantasy Adventure by xDeviruchi](https://xdeviruchi.itch.io/16-bit-fantasy-adventure-music-pack).
 
 ### Other Contributions
 
