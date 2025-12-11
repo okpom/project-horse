@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dtrrigpj6n5f4"]
+[gd_scene load_steps=7 format=3 uid="uid://dtrrigpj6n5f4"]
 
 [ext_resource type="Script" uid="uid://chlke5qgxsrs3" path="res://scripts/dialogue/dialogue_cutscene.gd" id="1_neo11"]
 [ext_resource type="PackedScene" uid="uid://nrqxk6f00x4g" path="res://scenes/dialogue/figure_template.tscn" id="1_y1t7v"]
 [ext_resource type="SpriteFrames" uid="uid://iguqreygcbkj" path="res://scenes/resources/red.tres" id="2_noyfe"]
 [ext_resource type="SpriteFrames" uid="uid://d2usg5n7vnxxx" path="res://scenes/resources/yellow.tres" id="3_g2ms2"]
 [ext_resource type="Texture2D" uid="uid://dlapkrmahkgcn" path="res://assets/UI_Visuals/sprites/BG_img.png" id="4_0xg38"]
+[ext_resource type="SpriteFrames" uid="uid://ceyviwxqi8qoj" path="res://scenes/resources/bear.tres" id="4_noyfe"]
 
 [node name="Cutscene" type="Control"]
 layout_mode = 3
@@ -15,6 +16,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_neo11")
 figure_map = Dictionary[String, SpriteFrames]({
+"bear": ExtResource("4_noyfe"),
 "red": ExtResource("2_noyfe"),
 "yellow": ExtResource("3_g2ms2")
 })
@@ -26,8 +28,10 @@ offset_top = -532.0
 offset_bottom = -492.0
 
 [node name="RightFigure" parent="RenderedFigures" instance=ExtResource("1_y1t7v")]
-offset_left = 322.00012
-offset_right = 362.00012
+offset_left = 1.0
+offset_top = -539.0
+offset_right = 61.0
+offset_bottom = -499.0
 
 [node name="Background" type="TextureRect" parent="RenderedFigures"]
 z_index = -1

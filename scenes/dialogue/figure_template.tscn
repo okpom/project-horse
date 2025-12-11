@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://nrqxk6f00x4g"]
 
 [ext_resource type="Script" uid="uid://bu2nvlkuak5wj" path="res://scripts/dialogue/dialogue_figure.gd" id="1_2m4sx"]
-[ext_resource type="SpriteFrames" uid="uid://iguqreygcbkj" path="res://scenes/resources/red.tres" id="2_2m4sx"]
+[ext_resource type="SpriteFrames" uid="uid://ceyviwxqi8qoj" path="res://scenes/resources/bear.tres" id="2_2m4sx"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2m4sx"]
 
