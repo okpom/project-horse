@@ -238,10 +238,12 @@ func _end_battle():
 	if enemy.is_dead:
 		state = State.END_WIN
 		_update_music()
+		get_tree().root.get_node("World").load_scene("res://scenes/win.tscn")
 		print("Win!")
 	else:
 		state = State.END_LOSS
 		_update_music()
+		get_tree().root.get_node("World").load_scene("res://scenes/loss.tscn")
 		print("Loss!")
 
 	# TODO: Add scene transitions or victory/defeat screens

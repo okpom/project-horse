@@ -70,18 +70,105 @@ Team Member 2
 ```
 
 ## Alexander Landess
+  ### Github Username: anlandess
+  ### Main Role: Game Logic
+  I primarily worked on creating and connecting the various subsystems of `battle_manager.gd` together and integrating each character's skills data to all of the overarching systems. My main goal was connecting the systems together in a cohesive and logical manner as well as ensuring that the necessary game data is being shared for the game to function. For each script, I will provide a brief overview of what it does and what my contributions were to it.
 
-### Game Logic
+  ### **I.** battle_manager.gd
 
-    asdf
+  Overview: Battle manager is effectively the super class. It is responsible for managing the other subsystems such as `prelim_combat_handler`, `action_handler`, `combat_manager`, and `clash_system`.
 
-### Gameplay Testing
+  My Contributions:
+  - Creating the original battle_manager.gd and integrating code snippets from other scripts in this new script.
+  - Implementing most of the original combat flow logic based on the battle's current state (like `PRE_BATTLE`, `SKILL_SELECTION`, `COMBAT`, etc), [which can be seen here](https://github.com/okpom/project-horse/blob/4d74331a5d6ea021cd82d9345edbd1e25285a133/scripts/battle_manager.gd#L4C1-L11C2).
+  - Creating the initial version of functions like `start_battle()` ([seen here](https://github.com/okpom/project-horse/blob/4d74331a5d6ea021cd82d9345edbd1e25285a133/scripts/battle_manager.gd#L79-L100)), `_start_skill_selection()` ([seen here](https://github.com/okpom/project-horse/blob/4d74331a5d6ea021cd82d9345edbd1e25285a133/scripts/battle_manager.gd#L104C1-L150C30)), and `_get_boss_skills()`. While these functions later got expanded upon or replaced by other team members (like for the clash system or UI integration), the main goal was to create a solid code foundation so that it would be easier to integrate other systems.
 
-    asdf
+---
+  ### **II.** action_handler.gd
+  
+  Overview: Action handler is responsible for handling the characters' skill pools, skill selection, and other UI interactions.
 
-### Other Contributions
+  My Contributions:
+  - Implementing logic to handle generating skills when a character first spawns. When the skills data is obtained from the character's `SkillContainer`, these specs are then stored in `original_skill_pool`. This way, when a character's skill pool is depleted, we can easily replenish the skill pool [as seen here](https://github.com/okpom/project-horse/blob/4d74331a5d6ea021cd82d9345edbd1e25285a133/scripts/action_handler.gd#L49-L52).
+  - Assisting in connecting the characters' selectable skills to the skill selection UI. This also includes adding logic to provide the description box with the correct skill data such as its name, description, and stats.
+  - Added logic to differentiate clicking on the same skill type in a different row (i.e. clicking on Skill 2 while a different Skill 2 is selected should switch the skill being used to the newly clicked skill) [as seen here](https://github.com/okpom/project-horse/blob/4d74331a5d6ea021cd82d9345edbd1e25285a133/scripts/action_handler.gd#L790C2-L808C2). 
+  - Creating a helper function SkillSlot, which allows for the skill targeting data to be directly fed into `combat_manager.gd` for clash/attack handling [as seen here](https://github.com/okpom/project-horse/blob/4d74331a5d6ea021cd82d9345edbd1e25285a133/scripts/action_handler.gd#L1183C1-L1206C33).
+  - Many miscellaneous changes that involve integrating skill logic into the overall system.
 
-    asdf
+---
+  ### **III.** combat_manager.gd
+
+  Overview: After skill selection is completed, `combat_manager.gd` takes the incoming skill queue and handles combat logic.
+
+  My Contribution: 
+  - Creating the initial `combat_manager.gd` and the initial `resolve_skills(skill_queue)` function. While I did not contribute to the actual combat handling logic, this function provided the necessary data (skill_queue from `action_handler.gd`) for the logic behind identifying and managing clashes. Effentially, it helped bridge the gap from the skill selection phase (in `action_handler.gd`) to the combat phase (in `combat_manager.gd`) by passing along essential skills-related data.
+
+---
+### **IV.** prelim_combat_handler.gd
+
+  Overview: When the player loads into the boss fight scene, `prelim_combat_handler.gd` is responsible for spawning entities, loading skills, and applying skills to the UI.
+
+  My Contributions:
+  - Implementing `spawn_players()`, which inits the characters at set locations and adds them to the scene. This function is able to summon more than 2 characters had we decided to add a 3rd characters.
+  - Implementing `spawn_enemy()`, which inits the enemy at a set location.
+  - Moving and refactoring code snippets from a deprecated script `boss_fight_manager.gd` to better match our project's initial proposal infrastructure. This deprecated script was a placeholder way of directly interacting and modifying the game for testing purposes.
+
+  ---
+### **V.** Skills (in general)
+
+ Overview: Script that holds the data for each entity's skill data. Some skill data includes damage, odds for a head, number of coins to flip, and more.
+
+ My Contributions:
+ - Implementing the base `skills.gd` class ([see here](https://github.com/okpom/project-horse/blob/4d74331a5d6ea021cd82d9345edbd1e25285a133/scripts/skills/skill.gd#L1C1-L2C13)).
+ - Filling out each character's skills node with meaningful attributes like Skill ID, Skill Name, Description, Copies in Deck, and so on with similar attributes. 
+ - Implementing logic for handling skill effects such as `[On Head]`, `[On Hit]`, and `[On Use]` ([see here](https://github.com/okpom/project-horse/blob/4d74331a5d6ea021cd82d9345edbd1e25285a133/scripts/clash_system.gd#L264)).
+- Contributed to hooking up each player's selectable skills with the UI itself. Previously it was showing placeholder skill data and not the actual character's skill data. 
+
+---
+### **VI.** Misc Game Logic Contributions
+
+Overview: Other things I contributed to that are worth mentioning.
+
+My Contributions:
+- Creating the base `entity.gd`, `player.gd`, and `boss.gd` classes. These classes had exportable parameters such as max health and speed.
+- Creating a basic scene swapper script attached to the World node ([found here](https://github.com/okpom/project-horse/blob/4d74331a5d6ea021cd82d9345edbd1e25285a133/scripts/main.gd#L1C1-L21C27)). Allows for efficient scene swapping when swapping to a new scene.
+- Creating a win/loss checker and the actual win/loss scene.
+---
+
+### Sub-Role: Gameplay Testing
+Note: Due to the short timeframe time between the project being playable and the deadline for this project, some gameplay testing took place prior to the project being 100% playable. As such, I think it's important to acknowledge that even though some of the feedback that was received might be irrelevant or dated, there was still some useful feedback that was gained. Thus, I will try to provide context for the state of the game at the time that each gameplay tester played.
+
+  ### **I.** Tester #1 (12/7/25)
+  State of the Game: Very basic skills (flat damage values, no buffs), no intro cutscene, no assets, no clash system (there was only direct attacks).
+
+---
+  
+  Q1: Was there anything you found frustrating?
+  
+  A1: The gameplay itself seems a bit more intuitive after playing around with it. I find it frustrating that there's no fight information that gets displayed after someone gets hit apart from just looking at a person's health. If I'm not paying full attention to the game, I feel like I might not see that the boss did a lot of damage to me.
+
+---
+  Q2: Did the game feel too long, too short, or just about right?
+
+  A2: The game felt too short. There isn't much to do as a player apart from just clicking on the skills that do the most damage.
+
+---
+  Q3: Were there particular aspects that you found satisfying?
+
+  A3: It's nice seeing the selected skills show up on top of the player.
+
+---
+  Q4: If you could change just one thing, what would it be?
+
+  A4: I would either change the skills to be more dynamic or add skills that do no damage but provide buffs.
+
+---
+  Q5: What was missing from the game?
+
+  A5: All the background assets and character models.
+
+---
+
 
 ## Kynan Lewis
 
