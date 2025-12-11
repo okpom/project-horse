@@ -30,7 +30,7 @@ If your project contains code that: 1) your team did not write, and 2) does not 
 
 If you used tutorials or other intellectual guidance to create aspects of your project, include reference to that information as well.
 
-Agentic Tools were used during the creation of an early draft of the UI code and for minor debugging.
+Agentic tools were used for prototying an early draft of the UI code and for minor debugging.
 
 # Team Member Contributions
 
@@ -163,23 +163,23 @@ Rough quarter... Didn't even have time to get all my deliverables complete :(
 
 # Justin Pak
 ### Producer
-Project Trello: https://trello.com/b/zCzT0oPH/project-horse-ecs-179 - Project planning and task tracking kanban board for helping
+Project Trello (https://trello.com/b/zCzT0oPH/project-horse-ecs-179) - Project planning and task tracking kanban board for helping
 people know what they have to do, when they have to finish, and who has to work on it. I chose to use a Kanban board over a 
 Gantt chart because I thought it would fit better with our team's dynamic and working process.
 Also included were milestones implemented at the start of development. Other than being a part of the producer deliverables, project 
 planning was discussed as a part of class during lectures regarding the project and tools you can use to help with the process.
 
+There were troubles with the team hitting milestones. I should've made the decision to have the team pivot to an idea that better fit the team's capabilities/schedules, but the team wanted to stick with the current game plan and I went against my gut judgement.
+
 GDScript Format Workflow - Made a GitHub workflow for automatically formatting all pushed gdscript files. This allows everyone to 
 code in their own preferred style while ensuring that all final code aligns to one consistent style. This workflow is based on the 
 portion of the course that covered Godot code style and best practices.
 
-Assigning Tasks, Holding Meetings - Held regular team meeting to make sure everyone was on the same page and took minutes for each meeting.
+Assigning Tasks, Holding Meetings - Listed Deliverable. Held regular team meeting to make sure everyone was on the same page and took minutes for each meeting.
 
 <img src="DocImages/minutes.jpeg" width="400"/>
 
-Producer Stuff - Tried to help be a force multiplier for the team. Helped act as a middleman between team members. Coordinated responsibilities and 
-task. Keep everyone on the same page. Helped support any other team members who need assistance. Managed deadlines and scope. Made choices when things 
-had to be delayed or scoped down. GitHub workflow.
+Other Producer Stuff - Tried to help be a force multiplier for the team. Helped act as a middleman between team members. Coordinated responsibilities and task. Keep everyone on the same page. Helped support any other team members who need assistance. Managed deadlines and scope. Made choices when things had to be delayed or scoped down. Worked to fix merge conflicts, bugs, and assisted with any members that needed support with programming for their roles.
 
 ### Visual Cohesion/Style Guide
 Moodboard/Style Guide - I worked with Danielle to nail down what the core aesthetic of the game should be. She created the first set of moodboards and I created the second set to lock in on what the game's visuals would be like. Originally, the game was leaning more towards gothic or fantasy elements. 
@@ -220,12 +220,9 @@ lectures regarding game design for systems and mechanics. Designs were written o
 
 Skill Icons - Created the skill icons for both characters since no one had created them yet at the time.
 
-Audio Asset Acquisition - Looked for audio assets since none had been found at the time.
+Audio Asset Acquisition - Helped for audio assets since none had been found at the time.
 
-
-
-
-
+---
     
 For each team member, you shoudl work of your role and sub-role in terms of the content of the course. Please look at the role sections below for specific instructions for each role.
 
