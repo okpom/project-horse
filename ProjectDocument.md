@@ -685,34 +685,6 @@ Coordinated responsibilities and task. Keep everyone on the same page. Helped su
 assistance. Managed deadlines and scope. Made choices when things had to be delayed or scoped down. Worked to fix merge
 conflicts, squash bugs, and assisted any members that needed support with their roles (programming or otherwise).
 
-### Visual Cohesion/Style Guide
-
-Moodboard/Style Guide - I worked with Danielle to nail down what the core aesthetic of the game should be. She created
-the first set of moodboards and I created the second set to lock in on what the game's visuals would be like.
-Originally, the game was leaning more towards gothic or fantasy elements.
-
-<img src="DocImages/compiled-moodboard-2.jpeg" width="400"/>
-
-Later, we decided to go for an "urban fairytale" aesthetic that incoporates storybook and fairytale characters and
-motifs into a slight run-down urban setting (one of the initial inspiration was Hong Kong in the 80/90s). The characters
-moved away from cloaks and tunics and more towards suits and ties.
-
-<img src="DocImages/compiled-moodboard-3.jpeg" width="400"/>
-
-As assets were being developed, I helped make sure that characters, enemies, and the environment aligned with the visual
-style that was created.
-
-There are some things that some might see as off like the coin graphics, but I wanted there to be some whimsy to
-contrast with the "grittiness" of the setting here and there. I felt the coins did a decent job without detracting too
-much.
-
-Color Palette Guidance - I worked with Danielle to ensure the art in the game aligned with the palette that was decided
-upon (muted colors with clear grayscale values). Art was checked to make sure this aligned with the game's theming and
-any changes regarding color were made directly on the image files themselves, saving us time on requiring in-engine
-color adjustments. We were able to do this because we weren't doing anything related to lighting in the game itself.
-
-### Other Contributions
-
 High Level Design - The game's original high level design consists of separate classes being handled by a global state
 machine. The intent was to break down the subsystems so that they are compartmentalized and can be worked on
 independently of each other. This system is based on portion of the course that covered different ways of creating
@@ -723,11 +695,6 @@ systems (specifically the part that covered states).
 Initial Game Plan/Design - I drove a lot of the conversation regarding potential ideas for what game we should
 make, which led into eventually creating the idea that would become BRR. I'm kind of sad a lot of game design elements
 created by myself and the team never came to fruition, but that's just how things go sometimes.
-
-Game Feel: I worked with Kynan to help time the animations and gameplay events to make the game flow more smoothly. One
-example was how originally the skill coins flipped all at once and landed at the same time. This made it feel kind of
-static, so I suggested that the flips be delayed a bit between all the coins and that character's attack animation
-frames be timed with the flips as well.
 
 Code Review - Reviewed all code being PR'ed and made comments on changes that needed to be made to prevent potential
 problems compounding in the future.
@@ -755,6 +722,41 @@ clashing below:
 <img src="DocImages/clash-concept-1.jpeg" width="400"/>
 <img src="DocImages/clash-concept-2.jpeg" width="400"/>
 <img src="DocImages/clash-concept-3.jpeg" width="400"/>
+
+While I wrote out the general logic and architecture for these systems, the bulk of the implementation of the core game
+logic was done by Alex with Kynan coming in to work on systems like clashing.
+
+### Visual Cohesion/Style Guide
+
+Moodboard/Style Guide - I worked with Danielle to nail down what the core aesthetic of the game should be. She created
+the first set of moodboards and I created the second set to lock in on what the game's visuals would be like.
+Originally, the game was leaning more towards gothic or fantasy elements.
+
+<img src="DocImages/compiled-moodboard-2.jpeg" width="400"/>
+
+Later, we decided to go for an "urban fairytale" aesthetic that incoporates storybook and fairytale characters and
+motifs into a slight run-down urban setting (one of the initial inspiration was Hong Kong in the 80/90s). The characters
+moved away from cloaks and tunics and more towards suits and ties.
+
+<img src="DocImages/compiled-moodboard-3.jpeg" width="400"/>
+
+As assets were being developed, I helped make sure that characters, enemies, and the environment aligned with the visual
+style that was created.
+
+There are some things that some might see as off like the coin graphics, but I wanted there to be some whimsy to
+contrast with the "grittiness" of the setting here and there. I felt the coins did a decent job without detracting too
+much.
+
+Color Palette Guidance - I worked with Danielle to ensure the art in the game aligned with the palette that was decided
+upon (muted colors with clear grayscale values). Art was checked to make sure this aligned with the game's theming and
+any changes regarding color were made directly on the image files themselves, saving us time on requiring in-engine
+color adjustments. We were able to do this because we weren't doing anything related to lighting in the game itself.
+
+### Other Contributions
+Game Feel - I worked with Kynan to help time the animations and gameplay events to make the game flow more smoothly. One
+example was how originally the skill coins flipped all at once and landed at the same time. This made it feel kind of
+static, so I suggested that the flips be delayed a bit between all the coins and that character's attack animation
+frames be timed with the flips as well.
 
 Skill Icons - Created the skill icons for both characters since no one had created them yet at the time.
 
