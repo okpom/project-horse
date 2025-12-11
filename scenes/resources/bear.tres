@@ -1,0 +1,60 @@
+[gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://ceyviwxqi8qoj"]
+
+[ext_resource type="Texture2D" uid="uid://h57ept03cgif" path="res://assets/UI_Visuals/sprites/bear_idle.png" id="1_0tg0r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d0k5c"]
+atlas = ExtResource("1_0tg0r")
+region = Rect2(0, 0, 1200, 750)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sxj1m"]
+atlas = ExtResource("1_0tg0r")
+region = Rect2(1200, 0, 1200, 750)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kud55"]
+atlas = ExtResource("1_0tg0r")
+region = Rect2(2400, 0, 1200, 750)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tkthn"]
+atlas = ExtResource("1_0tg0r")
+region = Rect2(0, 750, 1200, 750)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_havnq"]
+atlas = ExtResource("1_0tg0r")
+region = Rect2(1200, 750, 1200, 750)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pven6"]
+atlas = ExtResource("1_0tg0r")
+region = Rect2(2400, 750, 1200, 750)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nwxkv"]
+atlas = ExtResource("1_0tg0r")
+region = Rect2(0, 1500, 1200, 750)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d0k5c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sxj1m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kud55")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tkthn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_havnq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pven6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nwxkv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

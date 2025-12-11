@@ -70,7 +70,9 @@ func empty_figures() -> void:
 func hide_figures() -> void:
 	for node: Node in figure_nodes_container.get_children():
 		if node is DialogueFigure:
+			(node as DialogueFigure).set_figure_state(DialogueFigure.FIGURE_STATE.NONE)
 			node.hide()
+	_set_speaker("")
 
 
 ## Check if all the figures are rendered. All rendered means
