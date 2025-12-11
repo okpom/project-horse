@@ -129,9 +129,7 @@ https://github.com/okpom/project-horse/blob/5ff30ad465be0e6c9307d44809339e871b0f
 https://github.com/okpom/project-horse/blob/5ff30ad465be0e6c9307d44809339e871b0fe58d/DocImages/art-6.jpeg
 https://github.com/okpom/project-horse/blob/5ff30ad465be0e6c9307d44809339e871b0fe58d/DocImages/art-7.jpeg
 I also made the animations in animation player in godot with the sprite sheets that I had made.
-
 Using these sprite sheets, I created animations in Godot’s AnimationPlayer. Drawing from the GameFeel lecture, I aimed for at least ten frames per second to ensure smooth motion and preserve the illusion of life. While not every animation reached this target, I prioritized the idle animation since it is the one players see most often. I also incorporated the principle—emphasized in lecture—that NPCs should always feel alive, even when the player is not directly interacting with them. This guided my decision to give both the boss characters and mobs detailed idle cycles as well as hurt animations that provided clear feedback whenever an attack successfully landed.
-
 I designed two main player characters inspired by instantly recognizable fairy-tale figures: Red (Red Riding Hood) and Yellow (Goldilocks). Both were reimagined with modern silhouettes and suits to fit the “urban fairytale” tone. For each character, I created a full set of animations: idle, run/move, several attacks, a guard stance, and a hurt animation. Their corresponding fairy-tale creatures—the wolf and the bear—were also designed and animated as bosses/mobs, building a visual connection between the characters and their origins.
 
 3. Color Palletes
@@ -140,7 +138,6 @@ Even after settling on the overall style and poses, I felt the visuals still did
 4. Start Screen and Backgrounds
 Originally, I imagined a character-select system where the player flipped through a storybook, choosing heroes like pages in a fairy tale. Although we didn’t end up implementing this feature, I still wanted to honor that narrative concept. I incorporated it into the start screen instead, designing an open book filled with taped post it sketches of the characters and polaroid photos of the combat settings. This visual metaphor subtly reinforces that the characters may have stepped out of a storybook into the real world or that someone has been documenting their presence.
 https://github.com/okpom/project-horse/blob/5ff30ad465be0e6c9307d44809339e871b0fe58d/DocImages/Untitled_Artwork.jpg
-
 For the in-game environments, I created several modern urban backgrounds, most notably subway scenes, to blend the familiarity of real-world settings with the strangeness of fairy-tale creatures invading them. To enhance the surreal and grungy tone, I desaturated these backgrounds entirely, integrating them into the monochromatic palette that ultimately unified the visual identity of the game.
 
 ### Narrative Design
