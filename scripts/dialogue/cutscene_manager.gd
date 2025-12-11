@@ -39,7 +39,7 @@ func play_cutscene(path: String, key: String = "start") -> void:
 
 func _on_dialogue(line: DialogueManager.DialogueLine) -> void:
 	if instance and instance is DialogueCutscene:
-		var cutscene:DialogueCutscene = instance as DialogueCutscene
+		var cutscene: DialogueCutscene = instance as DialogueCutscene
 		if line.character.contains("Red"):
 			cutscene.set_focus("red")
 		elif line.character.contains("Gold"):
@@ -50,12 +50,10 @@ func _on_dialogue(line: DialogueManager.DialogueLine) -> void:
 			cutscene.set_focus("bear")
 			# mystery
 			if line.character.contains("Animal"):
-				cutscene._find_figure_by_name("bear").modulate = Color(0,0,0,1)
+				cutscene._find_figure_by_name("bear").modulate = Color(0, 0, 0, 1)
 			else:
 				#cutscene._find_figure_by_name("bear").modulate = Color(1,1,1,1)
 				pass
-			
-			
 
 
 func _on_dialogue_ended(_resource: DialogueResource) -> void:
